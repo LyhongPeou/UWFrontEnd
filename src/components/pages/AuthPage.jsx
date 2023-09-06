@@ -51,12 +51,18 @@ const AuthPage = () => {
 
     return <section className="h-screen w-full relative mx-auto flex justify-center items-center">
         <div className="p-10 flex">
-            <div>
-                <img src={AuthSVG} alt="Document Image" className="w-5/6"/>
-            </div>
+            {registerState ? (
+                <div>
+                    <img src={AuthSVG} alt="Document Image" className="w-5/6 mt-20 pt-14" />
+                </div>
+                ) : (
+                <div>
+                    <img src={AuthSVG} alt="Document Image" className="w-5/6" />
+                </div>
+                )}
             <div className="p-8 rounded-2xl w-[500px] bg-accent">
                 {registerState ? 
-                <h1 className="font-bold text-[2rem] text-white mb-10">Register</h1> : <h1 className="font-bold text-[2rem] text-white mb-10" >Login</h1>
+                <h1 className="font-bold text-[2rem] text-white mb-4 text-center">Sign Up</h1> : <h1 className="font-bold text-[2rem] text-white text-center mb-4" >Sign In</h1>
                 }
                 <form className="flex flex-col mt-1 gap-8 " ref={formRef}>
                     {registerState && (
@@ -113,16 +119,30 @@ const AuthPage = () => {
                     )}
 
                     <div className="flex flex-col justify-between items-center" >
-                        <button className="px-6 py-4 border-black bg-secondary rounded-2xl text-white font-bold text-[20px] hover:underline" onClick={onSubmithandler}>
-                            {registerState ? "Sign Up" : "Sign In"}
+                        <button className="px-6 py-3 border-black bg-secondary rounded-2xl text-white font-bold text-[20px] hover:underline" onClick={onSubmithandler}>
+                            {registerState ? (
+                                <>
+                                Create an Account
+                                </>
+                            ) : (
+                                <>
+                                Login
+                                </>
+                            )}
                         </button>
 
-                        <button
-                            className="px-4 py-3 rounded-2xl w-[120px] font-bold text-[20px] hover:underline text-white "
-                            onClick={onClickRegister}
-                        >
-                            {registerState ? "Sign In" : "Register"}
+                        <button className="px-4 py-3 rounded-2xl w-[500px] text-[20px] text hover:underline text-white" onClick={onClickRegister}>
+                            {registerState ? (
+                                <>
+                                Already have an account? <span className="text-secondary">Login</span>
+                                </>
+                            ) : (
+                                <>
+                                Don't have an account? <span className="text-secondary">Sign Up</span>
+                                </>
+                            )}
                         </button>
+
                     </div>
                     <div className="ml-4 flex items-center">
                     </div>
