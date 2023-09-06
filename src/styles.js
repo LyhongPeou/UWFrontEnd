@@ -5,6 +5,10 @@ const styles = {
   
     dashHeadText:
       "font-black text-accent lg:text-[50px] sm:text-[40px] xs:text-[50px] text-[30px] lg:leading-[80px] mt-2",
+    inputText:
+      "py-4 px-6 rounded-lg outline-none border-none font-meduim text-black",
+    labelText:
+      "flex flex-col text-white",
   };
   
   export { styles };
