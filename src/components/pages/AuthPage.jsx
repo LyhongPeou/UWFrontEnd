@@ -1,10 +1,10 @@
 import { useState, useRef } from "react";
-
+import { useDispatch } from "react-redux";
 
 const AuthPage = () => {
 
     const [registerState, setRegisterState] = useState(false);
-
+    const dispatch = useDispatch()
 
 
     const [infoLogin, setinfoLogin] = useState({
