@@ -5,7 +5,7 @@ const AuthPage = () => {
 
     const [registerState, setRegisterState] = useState(false);
 
-    
+
 
     const [infoLogin, setinfoLogin] = useState({
         email: "",
@@ -51,7 +51,8 @@ const AuthPage = () => {
     return <section className="h-screen w-full relative mx-auto bg-background">
         <div className=" flex justify-center p-10">
             <div className="p-8 rounded-2xl bg-primary w-[500px] ">
-                {registerState? <h1 className="font-bold text-[2rem] mb-4">Register</h1> : <h1  className="font-bold text-[2rem] mb-4" >Login</h1>}
+                {registerState ? <h1 className="font-bold text-[2rem] ">Register</h1> : <h1 className="font-bold text-[2rem] " >Login</h1>}
+                <hr class="h-px my-5 bg-gray-200 border-0 dark:bg-gray-700"></hr>
                 <form className="flex flex-col mt-1 gap-8 " ref={formRef}>
                     {registerState && (
                         <label className="flex flex-col">
