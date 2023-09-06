@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { styles } from "../../styles"
+import { styles } from "../../styles";
+import AuthSVG from '../images/auth.svg';
+
 
 const AuthPage = () => {
 
@@ -17,6 +19,7 @@ const AuthPage = () => {
         name: "",
         email: "",
         password: "",
+        confirmation: "",
     });
 
     const formRef = useRef();
@@ -39,8 +42,6 @@ const AuthPage = () => {
 
     }
 
-
-
     const onClickRegister = (e) => {
         e.preventDefault();
         setRegisterState((prev) => {
@@ -48,77 +49,82 @@ const AuthPage = () => {
         });
     };
 
-
-    return <section className="h-screen w-full relative mx-auto">
-        <div className=" flex justify-center p-10">
+    return <section className="h-screen w-full relative mx-auto flex justify-center items-center">
+        <div className="p-10 flex">
+            <div>
+                <img src={AuthSVG} alt="Document Image" className="w-5/6"/>
+            </div>
             <div className="p-8 rounded-2xl w-[500px] bg-accent">
-                {registerState ? <h1 className="font-bold text-[2rem]">Register</h1> : <h1 className="font-bold text-[2rem] text-white" >Login</h1>}
-                <hr class="h-px my-5 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                {registerState ? 
+                <h1 className="font-bold text-[2rem] text-white mb-10">Register</h1> : <h1 className="font-bold text-[2rem] text-white mb-10" >Login</h1>
+                }
                 <form className="flex flex-col mt-1 gap-8 " ref={formRef}>
                     {registerState && (
-                        <label className={`${styles.labelText}`}>
-                            <span className=" font-meduim mb-4 text-[20px] font-bold">
+                        <label className="flex flex-col text-white">
+                            <span className={`${styles.labelText}`}>
                                 Name
                             </span>
                             <input
                                 type="text"
-                                placeholder="Please Enter Your Name"
+                                placeholder="First and Last Name"
                                 name="name"
                                 onChange={onChangeHandler}
                                 className={`${styles.inputText}`}
                             />
                         </label>
                     )}
-                    <label className={`${styles.labelText}`}>
-                        <span className="font-meduim mb-4 text-[20px] font-bold">
+                    <label className="flex flex-col text-white">
+                        <span className={`${styles.labelText}`}>
                             Email
                         </span>
                         <input
                             type="text"
-                            placeholder="Please Enter Your Email"
+                            placeholder="Email"
                             name="email"
                             onChange={onChangeHandler}
                             className={`${styles.inputText}`}
                         />
                     </label>
-                    <label className={`${styles.labelText}`}>
-                        <span className=" font-meduim mb-4 text-[20px] font-bold">
+                    <label className="flex flex-col text-white">
+                        <span className={`${styles.labelText}`}>
                             Password
                         </span>
                         <input
                             type="password"
                             onChange={onChangeHandler}
                             name="password"
-                            placeholder="Please Enter Your Password"
+                            placeholder="Password"
                             className={`${styles.inputText}`}
                         />
                     </label>
                     {registerState && (
-                        <label className={`${styles.labelText}`}>
-                            <span className=" font-meduim mb-4 text-[20px] font-bold">
+                        <label className="flex flex-col text-white">
+                            <span className={`${styles.labelText}`}>
                                 Confirmation Code
                             </span>
                             <input
                                 type="text"
-                                placeholder="Please Enter the Confirmation"
-                                name="name"
+                                placeholder="Confirmation Code"
+                                name="confirmation"
                                 onChange={onChangeHandler}
                                 className={`${styles.inputText}`}
                             />
                         </label>
                     )}
 
-                    <div className="flex flex-row justify-between" >
-                        <button className="px-4 py-3 border-black bg-secondary rounded-2xl w-[120px] text-white font-bold text-[20px] hover:underline" onClick={onSubmithandler}>
-                            {registerState ? "Register" : "Login"}
+                    <div className="flex flex-col justify-between items-center" >
+                        <button className="px-6 py-4 border-black bg-secondary rounded-2xl text-white font-bold text-[20px] hover:underline" onClick={onSubmithandler}>
+                            {registerState ? "Sign Up" : "Sign In"}
                         </button>
 
                         <button
-                            className="px-4 py-3 rounded-2xl w-[120px] font-bold text-[20px] hover:underline text-white"
+                            className="px-4 py-3 rounded-2xl w-[120px] font-bold text-[20px] hover:underline text-white "
                             onClick={onClickRegister}
                         >
-                            {registerState ? "Login" : "Register"}
+                            {registerState ? "Sign In" : "Register"}
                         </button>
+                    </div>
+                    <div className="ml-4 flex items-center">
                     </div>
                 </form>
             </div>

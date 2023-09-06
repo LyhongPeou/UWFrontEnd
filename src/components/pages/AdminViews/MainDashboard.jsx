@@ -5,7 +5,7 @@ const MainDashboard = () => {
     return (
         <>
             <h1  className={`${styles.dashHeadText} mb-5 `}>Your Dashboard</h1>
-            <div className="h-[70vh] md:h-[80vh] w-full md:w-1/2 lg:w-1/3 overflow-y-auto border border-gray-300 rounded-md shadow-md p-4 bg-gray-50 mx-auto">
+            <div className="h-[70vh] md:h-[50vh] w-full md:w-1/2 lg:w-1/3 overflow-y-auto border border-gray-300 rounded-md shadow-md p-4 bg-gray-50 mx-auto">
                 {notificationList.map((notification, index) => (
                     <div 
                         key={index} 

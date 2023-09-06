@@ -8,7 +8,7 @@ const AdminDashboard = () => {
         <Navbar />
 
         <div className="bg-background min-h-screen ">
-            <section className="relative pt-20">
+            <section className="relative pt-5">
                 <div className="w-full max-w-7xl mx-auto px-4">
                     <Outlet />
                 </div>
