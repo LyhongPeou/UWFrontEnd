@@ -1,26 +1,45 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const NavBar = () => {
   return (
-    <nav className="w-full py-5 flex items-center fixed top-0 z-20 bg-white shadow-md">
-      <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-4">
-        <ul className="flex space-x-6">
-          <li className="cursor-pointer hover:text-blue-500"><Link to="./dashboard">My Dashboard</Link></li>
-          <li className="cursor-pointer hover:text-blue-500">
-            <Link to="./student_management">Student Management</Link>
-          </li>
-          <li className="cursor-pointer hover:text-blue-500">
-            <Link to="./document_mangement">Document Management</Link>
-          </li>
-        </ul>
-        <ul className="flex space-x-6">
-          <li className="cursor-pointer hover:text-blue-500"><Link to="./Setting">Settings</Link></li>
-          <li className="cursor-pointer hover:text-blue-500">Logout</li>
-        </ul>
+    <div className="navbar bg-base-100">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+          </label>
+          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+
+            <li><NavLink to="./student_management">Student Management</NavLink></li>
+            <li><NavLink to="./document_mangement">Document Management</NavLink></li>
+            <li><NavLink to="./setting">Setting</NavLink></li>
+          </ul>
+        </div>
+        <NavLink className="btn btn-ghost normal-case text-xl" to="./dashboard">My Dashboard</NavLink>
+
+        <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li><NavLink to="./student_management">Student Management</NavLink></li>
+            <li><NavLink to="./document_mangement">Document Management</NavLink></li>
+          </ul>
+        </div>
       </div>
-    </nav>
-  );
+
+      <div className="navbar-end ">
+
+        <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li><NavLink to="./setting">Setting</NavLink></li>
+
+          </ul>
+
+        </div>
+
+        <button className="btn">Logout</button>
+      </div>
+    </div>
+  )
 };
 
 export default NavBar;

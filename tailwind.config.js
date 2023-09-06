@@ -8,16 +8,13 @@ export default {
   theme: {
     extend: {
 
-      colors: {
-        'text': '#141118',
-        'background': '#edeaf1',
-        'primary': '#b898b9',
-        'secondary': '#deced6',
-        'accent': '#865b71',
-      }
 
 
     },
+
+
+
+
   },
-  plugins: [require('flowbite/plugin')],
+  plugins: [require("daisyui")],
 }

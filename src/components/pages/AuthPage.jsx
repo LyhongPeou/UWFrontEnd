@@ -50,13 +50,13 @@ const AuthPage = () => {
 
     return <section className="h-screen w-full relative mx-auto bg-background">
         <div className=" flex justify-center p-10">
-            <div className="p-8 rounded-2xl bg-primary w-[500px] ">
+            <div className="p-8 rounded-2xl w-[500px] ">
                 {registerState ? <h1 className="font-bold text-[2rem] ">Register</h1> : <h1 className="font-bold text-[2rem] " >Login</h1>}
                 <hr class="h-px my-5 bg-gray-200 border-0 dark:bg-gray-700"></hr>
                 <form className="flex flex-col mt-1 gap-8 " ref={formRef}>
                     {registerState && (
                         <label className="flex flex-col">
-                            <span className="text-black font-meduim mb-4 text-[20px] font-bold">
+                            <span className=" font-meduim mb-4 text-[20px] font-bold">
                                 Name
                             </span>
                             <input
@@ -64,13 +64,13 @@ const AuthPage = () => {
                                 placeholder="Please Enter Your Name"
                                 name="name"
                                 onChange={onChangeHandler}
-                                className="py-4 px-6 rounded-lg outline-none border-none font-meduim bg-secondary"
+                                className="py-4 px-6 rounded-lg outline-none border-none font-meduim"
                             />
                         </label>
                     )}
 
                     <label className="flex flex-col">
-                        <span className="text-black font-meduim mb-4 text-[20px] font-bold">
+                        <span className=" font-meduim mb-4 text-[20px] font-bold">
                             Email
                         </span>
                         <input
@@ -78,11 +78,11 @@ const AuthPage = () => {
                             placeholder="Please Enter Your Email"
                             name="email"
                             onChange={onChangeHandler}
-                            className="py-4 px-6 rounded-lg outline-none border-none font-meduim bg-secondary"
+                            className="py-4 px-6 rounded-lg outline-none border-none font-meduim"
                         />
                     </label>
                     <label className="flex flex-col">
-                        <span className="text-black font-meduim mb-4 text-[20px] font-bold">
+                        <span className=" font-meduim mb-4 text-[20px] font-bold">
                             Password
                         </span>
                         <input
@@ -90,7 +90,7 @@ const AuthPage = () => {
                             onChange={onChangeHandler}
                             name="password"
                             placeholder="Please Enter Your Password"
-                            className="py-4 px-6 rounded-lg outline-none border-none font-meduim bg-secondary"
+                            className="py-4 px-6 rounded-lg outline-none border-none font-meduim "
                         />
                     </label>
 
