@@ -7,4 +7,8 @@ import MainDashboard from "./pages/AdminViews/MainDashboard";
 import StudentManagement from "./pages/AdminViews/StudentManagement";
 import DocumentManagement from "./pages/AdminViews/DocumentManagement";
 
-export {AuthPage, Navbar, AdminDashboard, MainDashboard, StudentManagement, DocumentManagement}
+import SettingPage from "./pages/Setting";
+
+
+
+export {AuthPage, Navbar, AdminDashboard, MainDashboard, StudentManagement, DocumentManagement,SettingPage}
