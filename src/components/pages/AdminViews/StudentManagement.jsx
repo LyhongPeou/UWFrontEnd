@@ -3,18 +3,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faUser } from "@fortawesome/free-solid-svg-icons"
 import { notificationList } from "../../constants";
 
-
-
 const StudentManagement = () => {
 
     return <>
+    
         <h1 className={`${styles.dashHeadText} mb-5 `}> Student Management </h1>
         <div className="flex flex-row justify-between">
         <div className="indicator">
-                <button className="btn border border-white join-item bg-white text-white hover:underline hover:bg-white">
+                <button className="btn border border-white join-item bg-white text-white hover:underline hover:bg-white" onClick={()=>document.getElementById('my_modal_3').showModal()}>
                     <FontAwesomeIcon icon={faPlus} className="text-accent"/>
                     <FontAwesomeIcon icon={faUser} className="text-accent"/>
                 </button>
+                <dialog id="my_modal_3" className="modal">
+                <div className="modal-box bg-white">
+                    <form method="dialog">
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    </form>
+                    <h3 className="font-bold text-lg text-accent">Hello!</h3>
+                    <p className="py-4 text-accent">FORM INPROGRESS</p>
+                </div>
+                </dialog>
                 </div>
             <div className="join">
                 <div>
