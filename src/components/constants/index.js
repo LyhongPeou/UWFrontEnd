@@ -1,5 +1,10 @@
 const notificationList = [
         {
+            studentID: "1",
+            submission: ["Driver's License", "Birth Certificate"],
+            date: "5/13/2023"
+        },
+        {
             studentID: "2",
             submission: ["Driver's License", "Birth Certificate"],
             date: "3/14/2023"

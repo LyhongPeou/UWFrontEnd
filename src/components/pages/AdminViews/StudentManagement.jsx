@@ -21,50 +21,55 @@ const StudentManagement = () => {
     
         <h1 className={`${styles.dashHeadText} mb-5 `}> Student Management </h1>
         <div className="flex flex-row justify-between">
-        <div className="indicator">
+            <div className="indicator">
                 <button className="btn border border-secondary join-item bg-secondary text-white hover:underline hover:bg-secondary" onClick={()=>document.getElementById('my_modal_3').showModal()}>
                     <FontAwesomeIcon icon={faPlus} className="text-white"/>
                     <FontAwesomeIcon icon={faUser} className="text-white"/>
                 </button>
+                <select className="select select-bordered border w-full max-w-md ml-4 bg-white text-accent">
+                    <option selected>Sort by...</option>
+                    <option>Name</option>
+                    <option>Due Date</option>
+                </select>
                 <dialog id="my_modal_3" className="modal">
-                <div className="modal-box bg-white">
-                    <form method="dialog">
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-accent">✕</button>
-                    </form>
-                    <h3 className="font-bold text-[25px] text-accent mb-4">Add a Student</h3>
-                    <label className="flex flex-col text-white border-accent">
+                    <div className="modal-box bg-white">
+                        <form method="dialog">
+                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-accent">✕</button>
+                        </form>
+                        <h3 className="font-bold text-[25px] text-accent mb-4">Add a Student</h3>
+                        <label className="flex flex-col text-white border-accent">
+                                <span className="font-meduim mb-2 text-[20px] text-accent font-bold">
+                                    Name
+                                </span>
+                                <input
+                                    type="text"
+                                    placeholder="First and Last Name"
+                                    name="name"
+                                    onChange={onChangeHandler}
+                                    className={`${styles.inputText} border border-accent mb-5`}
+                                />
+                        </label>
+                        <label className="flex flex-col text-white">
                             <span className="font-meduim mb-2 text-[20px] text-accent font-bold">
-                                Name
+                                Email
                             </span>
                             <input
                                 type="text"
-                                placeholder="First and Last Name"
-                                name="name"
+                                placeholder="Email"
+                                name="email"
                                 onChange={onChangeHandler}
-                                className={`${styles.inputText} border border-accent mb-5`}
+                                className={`${styles.inputText} border border-accent`}
                             />
-                    </label>
-                    <label className="flex flex-col text-white">
-                        <span className="font-meduim mb-2 text-[20px] text-accent font-bold">
-                            Email
-                        </span>
-                        <input
-                            type="text"
-                            placeholder="Email"
-                            name="email"
-                            onChange={onChangeHandler}
-                            className={`${styles.inputText} border border-accent`}
-                        />
-                    </label>
-                    <div className="flex justify-center">
-                        <button className="btn bg-secondary text-white text-[20px] border border-secondary mt-6 hover:bg-secondary hover:border-secondary w-full">
-                            Submit
-                        </button>
+                        </label>
+                        <div className="flex justify-center">
+                            <button className="btn bg-secondary text-white text-[20px] border border-secondary mt-6 hover:bg-secondary hover:border-secondary w-full">
+                                Submit
+                            </button>
+                        </div>
                     </div>
-                </div>
                 </dialog>
-                </div>
-            <div className="join">
+            </div>
+            <div className="join flex items-center">
                 <div>
                     <div>
                     <input className="input input-bordered join-item bg-white text-accent " placeholder="Search"/>
