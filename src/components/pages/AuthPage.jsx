@@ -3,12 +3,10 @@ import { useDispatch } from "react-redux";
 import { styles } from "../../styles";
 import AuthSVG from '../images/auth.svg';
 
-
 const AuthPage = () => {
 
     const [registerState, setRegisterState] = useState(false);
     const dispatch = useDispatch()
-
 
     const [infoLogin, setinfoLogin] = useState({
         email: "",
@@ -51,18 +49,12 @@ const AuthPage = () => {
 
     return <section className="h-screen w-full relative mx-auto flex justify-center items-center">
         <div className="p-10 flex">
-            {registerState ? (
-                <div>
-                    <img src={AuthSVG} alt="Document Image" className="w-5/6 mt-20 pt-14" />
-                </div>
-                ) : (
-                <div>
-                    <img src={AuthSVG} alt="Document Image" className="w-5/6" />
-                </div>
-                )}
-            <div className="p-8 rounded-2xl w-[500px] bg-accent">
+            <div className="flex items-center">
+                <img src={AuthSVG} alt="Document Image" className="w-5/6" />
+            </div>
+            <div className="p-10 rounded-2xl w-1/2 bg-accent">
                 {registerState ? 
-                <h1 className="font-bold text-[2rem] text-white mb-4 text-center">Sign Up</h1> : <h1 className="font-bold text-[2rem] text-white text-center mb-4" >Sign In</h1>
+                    <h1 className="font-bold text-[2rem] text-white mb-4 text-center">Sign Up</h1> : <h1 className="font-bold text-[2rem] text-white text-center mb-4" >Login</h1>
                 }
                 <form className="flex flex-col mt-1 gap-8 " ref={formRef}>
                     {registerState && (
@@ -117,12 +109,11 @@ const AuthPage = () => {
                             />
                         </label>
                     )}
-
-                    <div className="flex flex-col justify-between items-center" >
-                        <button className="px-6 py-3 border-black bg-secondary rounded-2xl text-white font-bold text-[20px] hover:underline" onClick={onSubmithandler}>
+                    <div className="flex flex-col items-center" >
+                        <button className="px-20 py-3 border-black bg-secondary rounded-2xl text-white font-bold text-[20px] hover:underline" onClick={onSubmithandler}>
                             {registerState ? (
                                 <>
-                                Create an Account
+                                Sign Up
                                 </>
                             ) : (
                                 <>
@@ -130,19 +121,17 @@ const AuthPage = () => {
                                 </>
                             )}
                         </button>
-
-                        <button className="px-4 py-3 rounded-2xl w-[500px] text-[20px] text hover:underline text-white" onClick={onClickRegister}>
+                        <div className="px-4 py-3 rounded-2xl w-[290px] text-[18px] text text-white">
                             {registerState ? (
                                 <>
-                                Already have an account? <span className="text-secondary">Login</span>
+                                <span>Already have an account?</span> <button className="text-secondary hover:underline font-bold" onClick={onClickRegister}>Login</button>
                                 </>
                             ) : (
                                 <>
-                                Don't have an account? <span className="text-secondary">Sign Up</span>
+                                <span>Don't have an account?</span> <button className="text-secondary hover:underline font-bold" onClick={onClickRegister}>Sign Up</button>
                                 </>
                             )}
-                        </button>
-
+                        </div>
                     </div>
                     <div className="ml-4 flex items-center">
                     </div>

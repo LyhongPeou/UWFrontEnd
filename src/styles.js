@@ -6,7 +6,7 @@ const styles = {
     dashHeadText:
       "font-black text-white lg:text-[50px] sm:text-[40px] xs:text-[50px] text-[30px] lg:leading-[80px] mt-2",
     inputText:
-      "py-4 px-6 rounded-lg outline-none border-none font-meduim text-black",
+      "py-4 px-6 rounded-lg font-meduim text-black input input-bordered bg-white",
     labelText:
       "font-meduim mb-4 text-[20px] font-bold",
   };
