@@ -1,5 +1,7 @@
 import { styles } from "../../../styles"
-import { notificationList } from "../../constants"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faUser } from "@fortawesome/free-solid-svg-icons"
+import { notificationList } from "../../constants";
 
 
 
@@ -7,8 +9,42 @@ const StudentManagement = () => {
 
     return <>
         <h1 className={`${styles.dashHeadText} mb-5 `}> Student Management </h1>
+        <div className="flex flex-row justify-between">
+        <div className="indicator">
+                <button className="btn border border-white join-item bg-white text-white hover:underline hover:bg-white">
+                    <FontAwesomeIcon icon={faPlus} className="text-accent"/>
+                    <FontAwesomeIcon icon={faUser} className="text-accent"/>
+                </button>
+                </div>
+            <div className="join">
+                <div>
+                    <div>
+                    <input className="input input-bordered join-item bg-white text-accent" placeholder="Search"/>
+                    </div>
+                </div>
+                <div className="indicator">
+                    <button className="btn border border-secondary join-item bg-secondary text-white hover:underline hover:bg-secondary">Search</button>
+                </div>
+            </div>
+        </div>
         <div className="flex flex-col">
-            <div className="h-[70vh] md:h-[60vh] w-full md:w-1/2 lg:w-1/3 overflow-y-auto border border-gray-300 rounded-md shadow-md p-4 bg-gray-50">
+            <div className="h-[70vh] md:h-[60vh] w-full md:w-1/2 lg:w-full overflow-y-auto border border-gray-300 rounded-md shadow-md p-4 bg-gray-50 mt-5">
+                {notificationList.map((notification, index) => (
+                        <div 
+                            key={index} 
+                            className="bg-white p-4 mb-4 rounded-md shadow-sm flex flex-col border border-gray-200"
+                        >
+                            <p className="mb-2 text-gray-800 font-semibold">
+                                <strong>Student ID:</strong> {notification.studentID}
+                            </p>
+                            <p className="mb-2 text-gray-700">
+                                <strong>Submission:</strong> {notification.submission.join(', ')}
+                            </p>
+                            <p className="text-gray-600">
+                                <strong>Date:</strong> {notification.date}
+                            </p>
+                        </div>
+                    ))}
             </div>
         </div>
     </>
