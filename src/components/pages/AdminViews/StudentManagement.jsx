@@ -49,7 +49,7 @@ const StudentManagement = () => {
                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-accent">✕</button>
                         </form>
                         <h3 className="font-bold text-[25px] text-accent mb-4">Add a Student</h3>
-                        <label className="flex flex-col text-white my-3">
+                        <label className="flex flex-col text-accent my-4">
                             <span className={`${styles.labelText}`}>
                                 Name
                             </span>    
@@ -58,10 +58,10 @@ const StudentManagement = () => {
                                 onChange={onChangeHandler}
                                 type="text" 
                                 placeholder="First and Last Name"
-                                className="input input-bordered w-full bg-white text-accent" 
+                                className="input input-bordered w-full bg-white text-accent border-primary" 
                             />
                         </label>
-                        <label className="flex flex-col text-white my-3">
+                        <label className="flex flex-col text-accent my-4">
                             <span className={`${styles.labelText}`}>
                                 Email
                             </span>    
@@ -70,7 +70,7 @@ const StudentManagement = () => {
                                 onChange={onChangeHandler}
                                 type="text" 
                                 placeholder="Email"
-                                className="input input-bordered w-full bg-white text-accent" 
+                                className="input input-bordered w-full bg-white text-accent border-primary" 
                             />
                         </label>
                         <div className="flex justify-center">
