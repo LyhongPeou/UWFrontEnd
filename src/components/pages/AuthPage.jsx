@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { styles } from "../../styles";
 import AuthSVG from '../images/auth.svg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 
 const AuthPage = () => {
 
@@ -124,16 +124,32 @@ const AuthPage = () => {
                                         className="input input-bordered w-full bg-white text-accent pr-10"
                                     />
                                     <span
-                                        className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
+                                        className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer"
                                         onClick={togglePasswordVisibility}
                                     >
                                         <FontAwesomeIcon
                                         icon={showPassword ? faEyeSlash : faEye}
-                                        className="toggle-password-icon text-primary"
+                                        className="toggle-password-icon text-primary opacity-60"
                                         />
                                     </span>
                                 </div>
                             </label>
+                            </>
+                        )}
+                    </div>
+                    <div className="flex flex-row justify-between">
+                        {registerState ? (
+                            <>
+                            </>
+                        ) : (
+                            <>
+                            <div className="flex flex-row items-center">
+                                <label className="cursor-pointer label">
+                                    <input type="checkbox" className="checkbox checkbox-success bg-white border border-accent w-4 h-4 rounded hover:border-accent" />
+                                </label>
+                                <span className="label-text ml-[2px] text-[16px]">Remember me</span>
+                            </div>
+                            <button className="text-secondary hover:underline">Forgot Password?</button>
                             </>
                         )}
                     </div>
@@ -152,7 +168,7 @@ const AuthPage = () => {
                     </label>
                     )}
                     <div className="flex flex-col items-center" >
-                        <button className="w-full py-3 border-black bg-secondary rounded-full text-white font-bold text-[18px] hover:underline mt-6" onClick={onSubmithandler}>
+                        <button className="w-full py-3 border-black bg-secondary rounded-full text-white font-bold text-[18px] hover:underline mt-5" onClick={onSubmithandler}>
                             {registerState ? (
                                 <>
                                 Sign Up
