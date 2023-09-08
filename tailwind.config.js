@@ -8,6 +8,11 @@ export default {
   daisyui: {
     themes: [
       {
+        extend: {
+          fontFamily: {
+            overpass: ['Overpass', 'sans'],
+          },
+        },
         mytheme: {
           "primary": "grey",
           "secondary": "#19D698",
@@ -48,5 +53,8 @@ export default {
       "winter",
     ],
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require("daisyui")
+  ],
 }

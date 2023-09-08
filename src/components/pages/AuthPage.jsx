@@ -66,7 +66,7 @@ const AuthPage = () => {
                     <h1 className="font-bold text-[34px] text-white text-center">Registration</h1> : <h1 className="font-bold text-[34px] text-white text-center" >Welcome </h1>
                 }
                 {registerState ? 
-                    <p className="text-center text-white mt-2">Create your account</p> : <p className="text-center text-white mt-2" >Login to your account</p>
+                    <p className="text-center text-white mt-1">Create your account</p> : <p className="text-center text-white mt-1" >Login to your account</p>
                 }
                 <form className="flex flex-col mt-1" ref={formRef}>
                     {registerState && (

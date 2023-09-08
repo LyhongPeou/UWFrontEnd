@@ -6,11 +6,17 @@ import { notificationList } from "../../constants";
 
 const StudentManagement = () => {
 
+    const [activeButton, setActiveButton] = useState('all');
+
     const [infoModal, setinfoModal] = useState({
         name: "",
         email: "",
         studentID: "",
     });
+
+    const handleButtonClick = (buttonName) => {
+        setActiveButton(buttonName);
+      };
 
     const onChangeHandler = (e) => {
         const { name, value } = e.target;
@@ -18,9 +24,20 @@ const StudentManagement = () => {
     };
 
     return <>
-    
         <h1 className={`${styles.dashHeadText} mb-4 `}> Student Management </h1>
         <div className="flex flex-row justify-between">
+            <div className="join flex items-center">
+                <div>  
+                    <div>
+                        <input className="input input-bordered join-item bg-white text-accents" placeholder="Search"/>
+                    </div>
+                </div>
+                <div className="indicator">
+                    <button className="btn border border-secondary join-item bg-secondary text-white hover:underline hover:bg-secondary hover:border-secondary">                    
+                        <FontAwesomeIcon icon={faMagnifyingGlass} className="text-white"/>
+                    </button>
+                </div>
+            </div>
             <div className="indicator">
                 <button className="btn border border-secondary join-item bg-secondary text-white hover:underline hover:bg-secondary" onClick={()=>document.getElementById('my_modal_3').showModal()}>
                     <FontAwesomeIcon icon={faPlus} className="text-white"/>
@@ -63,28 +80,36 @@ const StudentManagement = () => {
                         </div>
                     </div>
                 </dialog>
-                <select className="select select-bordered border w-full max-w-md ml-4 bg-white text-accent">
-                    <option disabled selected>Sort by...</option>
-                    <option>All</option>
-                    <option>Name</option>
-                    <option>Due Date</option>
-                </select>
-            </div>
-            <div className="join flex items-center">
-                <div>
-                    <div>
-                    <input className="input input-bordered join-item bg-white text-accent " placeholder="Search"/>
-                    </div>
-                </div>
-                <div className="indicator">
-                    <button className="btn border border-secondary join-item bg-secondary text-white hover:underline hover:bg-secondary hover:border-secondary">                    
-                        <FontAwesomeIcon icon={faMagnifyingGlass} className="text-white"/>
-                    </button>
-                </div>
             </div>
         </div>
+            <div className="flex flex-row items-center mt-5">
+                <button
+                    className={`${
+                    activeButton === 'all' ? 'bg-secondary text-white border-0' : ''
+                    } ${styles.standardbtn}`}
+                    onClick={() => handleButtonClick('all')}
+                >
+                    All
+                </button>
+                <button
+                    className={`${
+                    activeButton === 'name' ? 'bg-secondary text-white border-0' : ''
+                    } ${styles.standardbtn} ml-5`}
+                    onClick={() => handleButtonClick('name')}
+                >
+                    Name
+                </button>
+                <button
+                    className={`${
+                    activeButton === 'id' ? 'bg-secondary text-white border-0' : ''
+                    } ${styles.standardbtn} ml-5`}
+                    onClick={() => handleButtonClick('id')}
+                >
+                    ID
+                </button>
+            </div>
         <div className="flex flex-col">
-            <div className="h-[70vh] md:h-[60vh] w-full md:w-1/2 lg:w-full overflow-y-auto border border-gray-300 rounded-md shadow-md p-4 bg-gray-50 mt-5">
+            <div className="h-[70vh] md:h-[58vh] w-full md:w-1/2 lg:w-full overflow-y-auto border border-gray-300 rounded-md shadow-md p-4 bg-gray-50 mt-5">
                 {notificationList.map((notification, index) => (
                         <div 
                             key={index} 
