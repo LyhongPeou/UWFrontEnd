@@ -29,7 +29,7 @@ const StudentManagement = () => {
             <div className="join flex items-center">
                 <div>  
                     <div>
-                        <input className="input input-bordered join-item bg-white text-accents" placeholder="Search"/>
+                        <input className="input input-bordered join-item bg-white text-accent w-80" placeholder="Search"/>
                     </div>
                 </div>
                 <div className="indicator">
