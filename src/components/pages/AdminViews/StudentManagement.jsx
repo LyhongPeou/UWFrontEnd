@@ -19,46 +19,41 @@ const StudentManagement = () => {
 
     return <>
     
-        <h1 className={`${styles.dashHeadText} mb-5 `}> Student Management </h1>
+        <h1 className={`${styles.dashHeadText} mb-4 `}> Student Management </h1>
         <div className="flex flex-row justify-between">
             <div className="indicator">
                 <button className="btn border border-secondary join-item bg-secondary text-white hover:underline hover:bg-secondary" onClick={()=>document.getElementById('my_modal_3').showModal()}>
                     <FontAwesomeIcon icon={faPlus} className="text-white"/>
                     <FontAwesomeIcon icon={faUser} className="text-white"/>
                 </button>
-                <select className="select select-bordered border w-full max-w-md ml-4 bg-white text-accent">
-                    <option selected>Sort by...</option>
-                    <option>Name</option>
-                    <option>Due Date</option>
-                </select>
                 <dialog id="my_modal_3" className="modal">
                     <div className="modal-box bg-white">
                         <form method="dialog">
                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-accent">✕</button>
                         </form>
                         <h3 className="font-bold text-[25px] text-accent mb-4">Add a Student</h3>
-                        <label className="flex flex-col text-white border-accent">
-                                <span className="font-meduim mb-2 text-[20px] text-accent font-bold">
-                                    Name
-                                </span>
-                                <input
-                                    type="text"
-                                    placeholder="First and Last Name"
-                                    name="name"
-                                    onChange={onChangeHandler}
-                                    className={`${styles.inputText} border border-accent mb-5`}
-                                />
+                        <label className="flex flex-col text-white my-3">
+                            <span className={`${styles.labelText}`}>
+                                Name
+                            </span>    
+                            <input 
+                                name="Name"
+                                onChange={onChangeHandler}
+                                type="text" 
+                                placeholder="First and Last Name"
+                                className="input input-bordered w-full bg-white text-accent" 
+                            />
                         </label>
-                        <label className="flex flex-col text-white">
-                            <span className="font-meduim mb-2 text-[20px] text-accent font-bold">
+                        <label className="flex flex-col text-white my-3">
+                            <span className={`${styles.labelText}`}>
                                 Email
-                            </span>
-                            <input
-                                type="text"
-                                placeholder="Email"
+                            </span>    
+                            <input 
                                 name="email"
                                 onChange={onChangeHandler}
-                                className={`${styles.inputText} border border-accent`}
+                                type="text" 
+                                placeholder="Email"
+                                className="input input-bordered w-full bg-white text-accent" 
                             />
                         </label>
                         <div className="flex justify-center">
@@ -68,6 +63,12 @@ const StudentManagement = () => {
                         </div>
                     </div>
                 </dialog>
+                <select className="select select-bordered border w-full max-w-md ml-4 bg-white text-accent">
+                    <option disabled selected>Sort by...</option>
+                    <option>All</option>
+                    <option>Name</option>
+                    <option>Due Date</option>
+                </select>
             </div>
             <div className="join flex items-center">
                 <div>
@@ -76,7 +77,7 @@ const StudentManagement = () => {
                     </div>
                 </div>
                 <div className="indicator">
-                    <button className="btn border border-secondary join-item bg-secondary text-white hover:underline hover:bg-secondary">                    
+                    <button className="btn border border-secondary join-item bg-secondary text-white hover:underline hover:bg-secondary hover:border-secondary">                    
                         <FontAwesomeIcon icon={faMagnifyingGlass} className="text-white"/>
                     </button>
                 </div>

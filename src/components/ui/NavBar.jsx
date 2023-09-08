@@ -43,7 +43,7 @@ const NavBar = () => {
         </div>
 
         <Link to="/">
-          <button className="btn bg-secondary text-white text-[20px]">
+          <button className="btn bg-secondary text-white text-[20px] hover:bg-secondary">
               <FontAwesomeIcon icon={faRightFromBracket} />
             </button>
         </Link>

@@ -2,10 +2,14 @@ import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { styles } from "../../styles";
 import AuthSVG from '../images/auth.svg';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const AuthPage = () => {
 
     const [registerState, setRegisterState] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+
     const dispatch = useDispatch()
 
     const [infoLogin, setinfoLogin] = useState({
@@ -19,6 +23,11 @@ const AuthPage = () => {
         password: "",
         confirmation: "",
     });
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
 
     const formRef = useRef();
 
@@ -52,65 +61,98 @@ const AuthPage = () => {
             <div className="flex items-center">
                 <img src={AuthSVG} alt="Document Image" className="w-5/6" />
             </div>
-            <div className="p-10 rounded-2xl w-1/2 bg-accent">
+            <div className="pt-10 pr-10 pl-10 rounded-2xl w-1/2 bg-accent">
                 {registerState ? 
-                    <h1 className="font-bold text-[2rem] text-white mb-4 text-center">Sign Up</h1> : <h1 className="font-bold text-[2rem] text-white text-center mb-4" >Login</h1>
+                    <h1 className="font-bold text-[34px] text-white text-center">Registration</h1> : <h1 className="font-bold text-[34px] text-white text-center" >Welcome </h1>
                 }
-                <form className="flex flex-col mt-1 gap-8 " ref={formRef}>
+                {registerState ? 
+                    <p className="text-center text-white mt-2">Create your account</p> : <p className="text-center text-white mt-2" >Login to your account</p>
+                }
+                <form className="flex flex-col mt-1" ref={formRef}>
                     {registerState && (
-                        <label className="flex flex-col text-white">
+                        <label className="flex flex-col text-white my-3">
                             <span className={`${styles.labelText}`}>
                                 Name
-                            </span>
-                            <input
-                                type="text"
-                                placeholder="First and Last Name"
+                            </span>    
+                            <input 
                                 name="name"
                                 onChange={onChangeHandler}
-                                className={`${styles.inputText}`}
+                                type="text" 
+                                placeholder="First and Last Name"
+                                className="input input-bordered w-full bg-white text-accent" 
                             />
                         </label>
                     )}
-                    <label className="flex flex-col text-white">
+                    <label className="flex flex-col text-white my-3">
                         <span className={`${styles.labelText}`}>
                             Email
-                        </span>
-                        <input
-                            type="text"
-                            placeholder="Email"
+                        </span>    
+                        <input 
                             name="email"
                             onChange={onChangeHandler}
-                            className={`${styles.inputText}`}
+                            type="text" 
+                            placeholder="Email"
+                            className="input input-bordered w-full bg-white text-accent" 
                         />
                     </label>
-                    <label className="flex flex-col text-white">
-                        <span className={`${styles.labelText}`}>
-                            Password
-                        </span>
-                        <input
-                            type="password"
-                            onChange={onChangeHandler}
-                            name="password"
-                            placeholder="Password"
-                            className={`${styles.inputText}`}
-                        />
-                    </label>
+                    <div>
+                        {registerState ? (
+                            <>
+                            <label className="flex flex-col text-white my-3 relative">
+                                <span className={`${styles.labelText}`}>Password</span>
+                                <div className="input-container relative">
+                                    <input
+                                        name="password"
+                                        onChange={onChangeHandler}
+                                        type="password"
+                                        placeholder="Password"
+                                        className="input input-bordered w-full bg-white text-accent pr-10"
+                                    />
+                                </div>
+                            </label>
+                            </>
+                        ) : (
+                            <>
+                            <label className="flex flex-col text-white my-3 relative">
+                                <span className={`${styles.labelText}`}>Password</span>
+                                <div className="input-container relative">
+                                    <input
+                                        name="password"
+                                        onChange={onChangeHandler}
+                                        type={showPassword ? "text" : "password"}
+                                        placeholder="Password"
+                                        className="input input-bordered w-full bg-white text-accent pr-10"
+                                    />
+                                    <span
+                                        className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
+                                        onClick={togglePasswordVisibility}
+                                    >
+                                        <FontAwesomeIcon
+                                        icon={showPassword ? faEyeSlash : faEye}
+                                        className="toggle-password-icon text-primary"
+                                        />
+                                    </span>
+                                </div>
+                            </label>
+                            </>
+                        )}
+                    </div>
                     {registerState && (
-                        <label className="flex flex-col text-white">
-                            <span className={`${styles.labelText}`}>
-                                Confirmation Code
-                            </span>
-                            <input
-                                type="text"
-                                placeholder="Confirmation Code"
-                                name="confirmation"
-                                onChange={onChangeHandler}
-                                className={`${styles.inputText}`}
-                            />
-                        </label>
+                    <label className="flex flex-col text-white my-3">
+                        <span className={`${styles.labelText}`}>
+                            Confirmation Code
+                        </span>    
+                        <input 
+                            name="text"
+                            onChange={onChangeHandler}
+                            type="text" 
+                            placeholder="Confirmation Code"
+                            className="input input-bordered w-full bg-white text-accent border" 
+                        />
+                    </label>
                     )}
                     <div className="flex flex-col items-center" >
-                        <button className="px-20 py-3 border-black bg-secondary rounded-2xl text-white font-bold text-[20px] hover:underline" onClick={onSubmithandler}>
+                        <button className="w-full py-3 border-black bg-secondary rounded-full text-white font-bold text-[18px] hover:underline mt-6" onClick={onSubmithandler}>
                             {registerState ? (
                                 <>
                                 Sign Up
@@ -121,7 +163,7 @@ const AuthPage = () => {
                                 </>
                             )}
                         </button>
-                        <div className="px-4 py-3 rounded-2xl w-[290px] text-[18px] text text-white">
+                        <div className="px-4 py-3 rounded-2xl text-[16px] text text-white mt-6 mb-4">
                             {registerState ? (
                                 <>
                                 <span>Already have an account?</span> <button className="text-secondary hover:underline font-bold" onClick={onClickRegister}>Login</button>
