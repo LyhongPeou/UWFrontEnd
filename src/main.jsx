@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { AuthPage, AdminDashboard, MainDashboard, StudentManagement, DocumentManagement, SettingPage } from './components/index'
+import { AuthPage, AdminDashboard, MainDashboard, StudentManagement, SettingPage } from './components/index'
 import store from './components/store/store'
 
 import { Provider } from 'react-redux'
@@ -29,10 +29,6 @@ const router = createBrowserRouter([{
     element: <StudentManagement />
   },
 
-  {
-    path: "/admin/document_mangement",
-    element: <DocumentManagement />
-  },
   {
     path: "/admin/setting",
     element: <SettingPage />
