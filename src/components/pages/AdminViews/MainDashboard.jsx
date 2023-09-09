@@ -1,5 +1,4 @@
-import { styles } from "../../../styles"
-import { notificationList } from "../../constants"
+import { styles } from "../../../styles";
 
 const MainDashboard = () => {
     return (

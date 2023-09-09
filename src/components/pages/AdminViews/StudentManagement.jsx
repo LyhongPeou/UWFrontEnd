@@ -48,7 +48,7 @@ const StudentManagement = () => {
                         <form method="dialog">
                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-accent">✕</button>
                         </form>
-                        <h3 className="font-bold text-[25px] text-accent mb-4">Add a Student</h3>
+                        <h3 className="font-bold text-[25px] text-accent mb-6">Add a Student</h3>
                         <label className="flex flex-col text-accent my-4">
                             <span className={`${styles.labelText}`}>
                                 Name
@@ -110,10 +110,11 @@ const StudentManagement = () => {
             </div>
         <div className="flex flex-col">
             <div className="h-[70vh] md:h-[58vh] w-full md:w-1/2 lg:w-full overflow-y-auto border border-gray-300 rounded-md shadow-md p-4 bg-gray-50 mt-5">
-                {notificationList.map((notification, index) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {notificationList.map((notification, index) => (
                         <div 
                             key={index} 
-                            className="bg-white p-4 mb-4 rounded-md shadow-sm flex flex-col border border-gray-200"
+                            className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-200"
                         >
                             <p className="mb-2 text-gray-800 font-semibold">
                                 <strong>Student ID:</strong> {notification.studentID}
@@ -126,6 +127,7 @@ const StudentManagement = () => {
                             </p>
                         </div>
                     ))}
+                </div>
             </div>
         </div>
     </>
