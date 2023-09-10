@@ -4,6 +4,7 @@ import { styles } from "../../styles";
 import AuthSVG from '../images/auth.svg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import {login} from '../store/authSlice.js'
 
 const AuthPage = () => {
 
@@ -45,7 +46,7 @@ const AuthPage = () => {
 
     const onSubmithandler = (e) => {
         e.preventDefault()
-        console.log("Clicked")
+        dispatch(login(infoLogin))
 
     }
 
