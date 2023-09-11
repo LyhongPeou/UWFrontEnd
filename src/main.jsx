@@ -11,6 +11,17 @@ import { Provider } from 'react-redux'
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 const router = createBrowserRouter([{
   path: "/",
   element: <AuthPage />
@@ -48,9 +59,13 @@ const router = createBrowserRouter([{
     element: <SettingPage />
   }
   ]
-},
+}
+
 
 ])
+
+
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
