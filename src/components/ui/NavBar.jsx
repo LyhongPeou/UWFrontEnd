@@ -21,7 +21,7 @@ const NavBar = () => {
           </label>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 text-white">
               {!shouldHideStudentsSection && (
-                <li><NavLink to="./student_management">Students</NavLink></li>
+                <li><NavLink to="./students">Students</NavLink></li>
               )}
               <li><NavLink to="./setting">Setting</NavLink></li>
             </ul>
@@ -33,7 +33,7 @@ const NavBar = () => {
           <div className="hidden lg:flex">
             {!shouldHideStudentsSection && (
             <ul className="menu menu-horizontal px-1 text-white text-[18px]">
-              <li className="mr-4"><NavLink to="./student_management">Students</NavLink></li>
+              <li className="mr-4"><NavLink to="./students">Students</NavLink></li>
             </ul>
             )}
           </div>

@@ -7,7 +7,8 @@ import MainDashboard from "./pages/AdminViews/MainDashboard";
 import StudentManagement from "./pages/AdminViews/StudentManagement";
 import SettingPage from "./pages/Setting";
 import StudentDashboard from "./pages/StudentViews/StudentDashboard";
+import MainStudentDashboard from "./pages/StudentViews/MainStudentDashboard";
 
 
 
-export {AuthPage, Navbar, AdminDashboard, MainDashboard, StudentManagement, SettingPage, StudentDashboard}
+export {AuthPage, Navbar, AdminDashboard, MainDashboard, StudentManagement, SettingPage, StudentDashboard, MainStudentDashboard}
