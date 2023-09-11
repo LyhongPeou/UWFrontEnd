@@ -109,12 +109,12 @@ const StudentManagement = () => {
                 </button>
             </div>
         <div className="flex flex-col">
-            <div className="h-[70vh] md:h-[58vh] w-full md:w-1/2 lg:w-full overflow-y-auto border border-gray-300 rounded-md shadow-md p-4 bg-gray-50 mt-5">
+            <div className="h-[70vh] md:h-[58vh] w-full md:w-1/2 lg:w-full overflow-y-auto rounded-md shadow-md p-4 bg-gray-50 mt-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {notificationList.map((notification, index) => (
                         <div 
                             key={index} 
-                            className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-200"
+                            className="bg-white p-4 mb-4 rounded-md shadow-sm border border-accent"
                         >
                             <p className="mb-2 text-gray-800 font-semibold">
                                 <strong>Student ID:</strong> {notification.studentID}
