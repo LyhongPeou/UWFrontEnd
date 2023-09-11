@@ -1,71 +1,52 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter  } from 'react-router-dom'
 import { AuthPage, AdminDashboard, MainDashboard, StudentManagement, SettingPage, StudentDashboard, MainStudentDashboard} from './components/index'
 import store from './components/store/store'
-
 import { Provider } from 'react-redux'
+import ProtectedRoute from './components/pages/ProtectedRoute'
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-const router = createBrowserRouter([{
-  path: "/",
-  element: <AuthPage />
-},
-
-{
-  path: "/admin",
-  element: <AdminDashboard />,
-  children: [{
-    path: "/admin/dashboard",
-    element: <MainDashboard />
-  },
-
+const router = createBrowserRouter([
   {
-    path: "/admin/students",
-    element: <StudentManagement />
+    path: "/",
+    element: <AuthPage />,
   },
-
   {
-    path: "/admin/setting",
-    element: <SettingPage />
-  }
-  ]
-},
-
-{
-  path: "/student",
-  element: <StudentDashboard />,
-  children: [{
-    path: "/student/dashboard",
-    element: <MainStudentDashboard />
+    path: "/admin",
+    element: <AdminDashboard />,
+    children: [
+      {
+        path: "/admin/dashboard",
+        element: <ProtectedRoute component={<MainDashboard/>} roles={['admin']} />,
+      },
+      {
+        path: "/admin/student_management",
+        element: <ProtectedRoute component={<StudentManagement/>} roles={['admin']} />,
+      },
+      {
+        path: "/admin/setting",
+        element: <ProtectedRoute component={<SettingPage/>} roles={['admin']} />,
+      },
+    ],
   },
-
   {
-    path: "/student/setting",
-    element: <SettingPage />
-  }
-  ]
-}
-
-
-])
-
-
+    path: "/student",
+    element: <StudentDashboard />,
+    children: [
+      {
+        path: "/student/dashboard",
+        element: <ProtectedRoute component={<MainStudentDashboard/>} roles={['student']} />,
+      },
+      {
+        path: "/student/setting",
+        element: <ProtectedRoute component={<SettingPage/>} roles={['student']} />,
+      },
+    ],
+  },
+]);
 
 
 

@@ -5,6 +5,7 @@ import AuthSVG from "../images/auth.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { login } from "../store/authSlice.js";
+import { useNavigate } from "react-router-dom";
 
 const AuthPage = () => {
   const [registerState, setRegisterState] = useState(false);
@@ -20,6 +21,8 @@ const AuthPage = () => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
+
+  const navigate = useNavigate();
 
   const [infoRegister, setinfoRegister] = useState({
     name: "",
@@ -49,14 +52,22 @@ const AuthPage = () => {
     dispatch(login(infoLogin))
     .then((response) => {
       setLoading(false);
+      console.log(response);
   
-      if(response.success) {
+      if(response.payload.message =="success") {
         setSuccessMessage("Login successful!");
+        try {
+            navigate('./admin/dashboard');
+            console.log("Login successful!");
+          } catch (error) {
+            console.error('Navigation error:', error);
+          }
+          
+
       } else {
         // If the response indicates an unsuccessful login attempt, you can handle it here
         
         setErrorMessage(response.payload || "Login unsuccessful.");
-        console.log(response.payload);
       }
     })
     .catch((error) => {
