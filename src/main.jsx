@@ -2,12 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider, createBrowserRouter  } from 'react-router-dom'
-import { AuthPage, AdminDashboard, MainDashboard, StudentManagement, SettingPage, StudentDashboard, MainStudentDashboard} from './components/index'
 import store from './components/store/store'
 import { Provider } from 'react-redux'
 import ProtectedRoute from './components/pages/ProtectedRoute'
 
-
+import { 
+  AuthPage, 
+  AdminDashboard, 
+  MainDashboard, 
+  StudentManagement, 
+  SettingPage, 
+  StudentDashboard, 
+  MainStudentDashboard,
+  FileManagement 
+} from './components/index'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/student_management",
         element: <ProtectedRoute component={<StudentManagement/>} roles={['admin']} />,
+      },
+      {
+        path: "/admin/files",
+        element: <ProtectedRoute component={<FileManagement/>} roles={['admin']} />,
       },
       {
         path: "/admin/setting",

@@ -19,7 +19,7 @@ export default {
           "accent": "#21242D",
           "neutral": "#3d4451",
           "base-100": "#16171D",
-          "font": "#FFFFFF",
+          "base-200": "#FF0000",
         },
       },
       "light",

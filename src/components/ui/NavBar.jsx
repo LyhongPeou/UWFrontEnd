@@ -23,6 +23,9 @@ const NavBar = () => {
               {!shouldHideStudentsSection && (
                 <li><NavLink to="./student_management">Students</NavLink></li>
               )}
+              {!shouldHideStudentsSection && (
+                <li><NavLink to="./files">Files</NavLink></li>
+              )}
               <li><NavLink to="./setting">Setting</NavLink></li>
             </ul>
         </div>
@@ -34,6 +37,7 @@ const NavBar = () => {
             {!shouldHideStudentsSection && (
             <ul className="menu menu-horizontal px-1 text-white text-[18px]">
               <li className="mr-4"><NavLink to="./student_management">Students</NavLink></li>
+              <li><NavLink to="./files">Files</NavLink></li>
             </ul>
             )}
           </div>
@@ -54,7 +58,7 @@ const NavBar = () => {
         </div>
 
         <Link to="/">
-          <button className="btn bg-secondary text-white text-[20px] hover:bg-secondary">
+          <button className="btn bg-secondary text-white text-[20px] hover:bg-secondary border border-secondary hover:border-secondary">
               <FontAwesomeIcon icon={faRightFromBracket} />
             </button>
         </Link>

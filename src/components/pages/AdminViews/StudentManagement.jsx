@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { styles } from "../../../styles"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faUser, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
+import { faPlus, faUser, faMagnifyingGlass, faCircleExclamation } from "@fortawesome/free-solid-svg-icons"
 import { notificationList } from "../../constants";
 
 const StudentManagement = () => {
@@ -73,6 +73,18 @@ const StudentManagement = () => {
                                 className="input input-bordered w-full bg-white text-accent border-primary" 
                             />
                         </label>
+                        <label className="flex flex-col text-accent my-4">
+                            <span className={`${styles.labelText}`}>
+                                Student ID
+                            </span>    
+                            <input 
+                                name="Name"
+                                onChange={onChangeHandler}
+                                type="text" 
+                                placeholder="Student ID"
+                                className="input input-bordered w-full bg-white text-accent border-primary" 
+                            />
+                        </label>
                         <div className="flex justify-center">
                             <button className="btn bg-secondary text-white text-[20px] border border-secondary mt-6 hover:bg-secondary hover:border-secondary w-full">
                                 Submit
@@ -125,6 +137,10 @@ const StudentManagement = () => {
                             <p className="text-gray-600">
                                 <strong>Date:</strong> {notification.date}
                             </p>
+                            <div className="flex flex-row items-center mt-2">
+                                <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200"/>
+                                <p className="mx-1 text-accent">Not Registered</p>
+                            </div>
                         </div>
                     ))}
                 </div>
