@@ -21,7 +21,7 @@ const NavBar = () => {
           </label>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 text-white">
               {!shouldHideStudentsSection && (
-                <li><NavLink to="./student_management">Students</NavLink></li>
+                <li><NavLink to="./students">Students</NavLink></li>
               )}
               {!shouldHideStudentsSection && (
                 <li><NavLink to="./files">Files</NavLink></li>
@@ -36,7 +36,7 @@ const NavBar = () => {
           <div className="hidden lg:flex">
             {!shouldHideStudentsSection && (
             <ul className="menu menu-horizontal px-1 text-white text-[18px]">
-              <li className="mr-4"><NavLink to="./student_management">Students</NavLink></li>
+              <li className="mr-4"><NavLink to="./students">Students</NavLink></li>
               <li><NavLink to="./files">Files</NavLink></li>
             </ul>
             )}
@@ -60,7 +60,7 @@ const NavBar = () => {
         <Link to="/">
           <button className="btn bg-secondary text-white text-[20px] hover:bg-secondary border border-secondary hover:border-secondary">
               <FontAwesomeIcon icon={faRightFromBracket} />
-            </button>
+          </button>
         </Link>
       </div>
     </div>

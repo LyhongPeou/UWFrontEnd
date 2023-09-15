@@ -134,7 +134,7 @@ const StudentManagement = () => {
                             <p className="mb-2 text-gray-700">
                                 <strong>Submission:</strong> {notification.submission.join(', ')}
                             </p>
-                            <p className="text-gray-600">
+                            <p className="text-gray-700">
                                 <strong>Date:</strong> {notification.date}
                             </p>
                             <div className="flex flex-row items-center mt-2">
