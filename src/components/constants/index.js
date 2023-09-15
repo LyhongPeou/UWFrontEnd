@@ -62,9 +62,22 @@ const notificationList = [
             submission: ["Tax Return Document"],
             date: "8/15/2023"
         },
-    ];
+];
 
+const documentList = [
+    {
+        requirement: ["Tax Return Document"],
+        deadline: "8/15/2023"
+    },
+    {
+        requirement: ["Driver's License"],
+        deadline: "8/15/2023"
+    },
+    {
+        requirement: ["Passport"],
+        deadline: "8/15/2023"
+    },
+]
 
-
-export {notificationList}
+export {notificationList, documentList}
 
