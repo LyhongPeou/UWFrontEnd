@@ -2,6 +2,7 @@ import { styles } from "../../../styles";
 import { documentList } from "../../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faXmark, faEye} from "@fortawesome/free-solid-svg-icons";
+import { notificationList } from "../../constants";
 
 const StudentInfo = () => {
     return (

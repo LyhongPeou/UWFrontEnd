@@ -130,6 +130,9 @@ const StudentManagement = () => {
                                 className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 hover:border-2 hover:border-secondary"
                             >
                                 <p className="mb-2 text-gray-800 font-semibold">
+                                    <strong>Name:</strong> {notification.name}
+                                </p>
+                                <p className="mb-2 text-gray-700 font-semibold">
                                     <strong>Student ID:</strong> {notification.studentID}
                                 </p>
                                 <p className="mb-2 text-gray-700">
