@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "../axiosInstance.js"; // make sure to adjust the path as per your file structure
 
 const useAxios = ({ url, method, body = null, headers = null }) => {
   const [response, setResponse] = useState(null);
@@ -7,7 +7,8 @@ const useAxios = ({ url, method, body = null, headers = null }) => {
   const [loading, setLoading] = useState(false);
 
   const fetchData = () => {
-    axios[method](url, JSON.parse(body), JSON.parse(headers))
+    setLoading(true);
+    axiosInstance[method](url, JSON.parse(body), { headers: JSON.parse(headers) })
       .then((res) => {
         setResponse(res.data);
       })

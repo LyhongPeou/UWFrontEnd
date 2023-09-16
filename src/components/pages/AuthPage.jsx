@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { login } from "../store/authSlice.js";
 import { useNavigate } from "react-router-dom";
+import { useAuth, useAxios } from "../../hook";
+import axiosInstance from "../../axiosInstance";
 
 const AuthPage = () => {
   const [registerState, setRegisterState] = useState(false);
@@ -47,35 +49,56 @@ const AuthPage = () => {
     }
   };
 
-  const onSubmithandler = (e) => {
+  const onSubmithandler = async (e) => {
     e.preventDefault();
-    dispatch(login(infoLogin))
-    .then((response) => {
-      setLoading(false);
-      console.log(response);
-  
-      if(response.payload.message =="success") {
-        setSuccessMessage("Login successful!");
-        try {
-            navigate('./admin/dashboard');
-            console.log("Login successful!");
-          } catch (error) {
-            console.error('Navigation error:', error);
-          }
-          
+    if (registerState == false) {
+      dispatch(login(infoLogin))
+        .then((response) => {
+          setLoading(false);
+          console.log(response);
 
+          if (response.payload.message == "success") {
+            setSuccessMessage("Login successful!");
+            try {
+              navigate("./admin/dashboard");
+              console.log("Login successful!");
+            } catch (error) {
+              console.error("Navigation error:", error);
+            }
+          } else {
+            // If the response indicates an unsuccessful login attempt, you can handle it here
+
+            setErrorMessage(response.payload || "Login unsuccessful.");
+          }
+        })
+        .catch((error) => {
+          setLoading(false);
+          setErrorMessage(error.payload || "An error occurred during login.");
+        });
+    } else {
+      console.log(infoRegister);
+
+      const { name, email, password, confirmation } = infoRegister;
+
+      if (name == "" || email == "" || password == "" || confirmation == "") {
+        setErrorMessage("Missing fields");
+        console.log("Missing fields");
       } else {
-        // If the response indicates an unsuccessful login attempt, you can handle it here
-        
-        setErrorMessage(response.payload || "Login unsuccessful.");
+        try {
+          const response = await axiosInstance.post("/users/register", {
+            name,
+            email,
+            password,
+            confirmation,
+          });
+
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
       }
-    })
-    .catch((error) => {
-      setLoading(false);
-      setErrorMessage(error.payload || "An error occurred during login.");
-    });
+    }
   };
-  
 
   const onClickRegister = (e) => {
     e.preventDefault();
@@ -196,7 +219,7 @@ const AuthPage = () => {
               <label className="flex flex-col text-white my-3">
                 <span className={`${styles.labelText}`}>Confirmation Code</span>
                 <input
-                  name="text"
+                  name="confirmation"
                   onChange={onChangeHandler}
                   type="text"
                   placeholder="Confirmation Code"
