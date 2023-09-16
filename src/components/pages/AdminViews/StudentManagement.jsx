@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { styles } from "../../../styles"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faUser, faMagnifyingGlass, faCircleExclamation } from "@fortawesome/free-solid-svg-icons"
@@ -124,7 +125,7 @@ const StudentManagement = () => {
             <div className="h-[70vh] md:h-[58vh] w-full md:w-1/2 lg:w-full overflow-y-auto rounded-md shadow-md p-4 bg-gray-50 mt-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {notificationList.map((notification, index) => (
-                        <button key={index} className="text-left">
+                        <Link to={`/admin/students/${notification.studentID}`} key={index} className="text-left">
                             <div 
                                 className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 hover:border-2 hover:border-secondary"
                             >
@@ -142,7 +143,7 @@ const StudentManagement = () => {
                                     <p className="mx-1 text-accent">Not Registered</p>
                                 </div>
                             </div>
-                        </button>
+                        </Link>
                     ))}
                 </div>
             </div>

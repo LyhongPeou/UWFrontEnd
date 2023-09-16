@@ -13,8 +13,9 @@ import {
   StudentManagement, 
   SettingPage, 
   StudentDashboard, 
-  MainStudentDashboard,
-  FileManagement 
+  RequirementDashboard,
+  FileManagement,
+  StudentInfo
 } from './components/index'
 
 const router = createBrowserRouter([
@@ -28,19 +29,23 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/admin/dashboard",
-        element: <ProtectedRoute component={<MainDashboard/>} roles={['admin']} />,
+        element: <MainDashboard/>,
       },
       {
-        path: "/admin/student_management",
-        element: <ProtectedRoute component={<StudentManagement/>} roles={['admin']} />,
+        path: "/admin/students",
+        element: <StudentManagement/>,
+      },
+      {
+        path: "/admin/students/:studentID",
+        element: <StudentInfo/>,
       },
       {
         path: "/admin/files",
-        element: <ProtectedRoute component={<FileManagement/>} roles={['admin']} />,
+        element: <FileManagement/>,
       },
       {
         path: "/admin/setting",
-        element: <ProtectedRoute component={<SettingPage/>} roles={['admin']} />,
+        element: <SettingPage/>,
       },
     ],
   },
@@ -50,11 +55,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/student/dashboard",
-        element: <ProtectedRoute component={<MainStudentDashboard/>} roles={['student']} />,
+        element: <RequirementDashboard/>,
       },
       {
         path: "/student/setting",
-        element: <ProtectedRoute component={<SettingPage/>} roles={['student']} />,
+        element: <SettingPage/>,
       },
     ],
   },
