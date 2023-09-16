@@ -124,24 +124,25 @@ const StudentManagement = () => {
             <div className="h-[70vh] md:h-[58vh] w-full md:w-1/2 lg:w-full overflow-y-auto rounded-md shadow-md p-4 bg-gray-50 mt-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {notificationList.map((notification, index) => (
-                        <div 
-                            key={index} 
-                            className="bg-white p-4 mb-4 rounded-md shadow-sm border border-accent"
-                        >
-                            <p className="mb-2 text-gray-800 font-semibold">
-                                <strong>Student ID:</strong> {notification.studentID}
-                            </p>
-                            <p className="mb-2 text-gray-700">
-                                <strong>Submission:</strong> {notification.submission.join(', ')}
-                            </p>
-                            <p className="text-gray-700">
-                                <strong>Date:</strong> {notification.date}
-                            </p>
-                            <div className="flex flex-row items-center mt-2">
-                                <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200"/>
-                                <p className="mx-1 text-accent">Not Registered</p>
+                        <button key={index} className="text-left">
+                            <div 
+                                className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 hover:border-2 hover:border-secondary"
+                            >
+                                <p className="mb-2 text-gray-800 font-semibold">
+                                    <strong>Student ID:</strong> {notification.studentID}
+                                </p>
+                                <p className="mb-2 text-gray-700">
+                                    <strong>Submission:</strong> {notification.submission.join(', ')}
+                                </p>
+                                <p className="text-gray-700">
+                                    <strong>Date:</strong> {notification.date}
+                                </p>
+                                <div className="flex flex-row items-center mt-2">
+                                    <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200"/>
+                                    <p className="mx-1 text-accent">Not Registered</p>
+                                </div>
                             </div>
-                        </div>
+                        </button>
                     ))}
                 </div>
             </div>
