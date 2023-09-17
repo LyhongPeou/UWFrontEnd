@@ -95,7 +95,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/student/dashboard",
-        element: <ProtectedRoute component={<MainStudentDashboard/>} roles={['student']} />,
+        element: <ProtectedRoute component={<RequirementDashboard/>} roles={['student']} />,
       },
       {
         path: "/student/setting",
