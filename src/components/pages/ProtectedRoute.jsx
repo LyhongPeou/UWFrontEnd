@@ -1,22 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useAuth from "../../hook/useAuth";
 import { Route, useNavigate } from "react-router-dom";
 
-const ProtectedRoute = ({ roles, element, ...rest }) => {
+const ProtectedRoute = ({ roles, element }) => {
   const { isAuthenticated, roles: userRoles } = useAuth();
   const navigate = useNavigate();
 
-  if (!isAuthenticated) {
-    navigate("/");
-    return null;
-  }
+  React.useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/");
+    } else if (roles && !roles.some((role) => userRoles.includes(role))) {
+      navigate("/error");
+    }
+  }, [isAuthenticated, userRoles, roles, navigate]);
 
-  if (roles && !roles.some((role) => userRoles.includes(role))) {
-    navigate("/error");
-    return null;
-  }
-
-  return <Route {...rest} element={element} />;
+  return element;
 };
 
 export default ProtectedRoute;

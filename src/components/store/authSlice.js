@@ -4,7 +4,7 @@ import axiosInstance from "../../axiosInstance";
 export const login = createAsyncThunk(
   "user/login",
   async (userData, thunkAPI) => {
-    console.log(userData);
+    
     try {
       const response = await axiosInstance.post("/users/login", userData);
       return response.data;
@@ -22,6 +22,7 @@ const authSlice = createSlice({
     builder
       .addCase(login.fulfilled, (state, action) => {
         state.userData = action.payload;
+        console.log(action.payload);
         state.isAuthenticated = true;
         state.error = null;
       })
