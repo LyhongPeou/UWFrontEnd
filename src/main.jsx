@@ -11,18 +11,24 @@ import store from "./components/store/store";
 import { Provider } from "react-redux";
 import ProtectedRoute from "./components/pages/ProtectedRoute";
 
-import {
-  AuthPage,
-  AdminDashboard,
-  MainDashboard,
-  StudentManagement,
-  SettingPage,
-  StudentDashboard,
-  MainStudentDashboard,
+import { 
+  AuthPage, 
+  AdminDashboard, 
+  MainDashboard, 
+  StudentManagement, 
+  SettingPage, 
+  StudentDashboard, 
+  RequirementDashboard,
   FileManagement,
-} from "./components/index";
+  StudentInfo,
+  NotFound
+} from './components/index'
 
 const router = createBrowserRouter([
+  {
+    path: "*",
+    element: <NotFound />,
+  },
   {
     path: "/",
     element: <AuthPage />,
@@ -45,20 +51,12 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/admin/students",
-        element: (
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute
-                  element={<StudentManagement />}
-                  roles={["admin"]}
-                />
-              }
-            />
-          </Routes>
-        ),
+        path: "/admin/student_management",
+        element: <ProtectedRoute component={<StudentManagement/>} roles={['admin']} />,
+      },
+      {
+        path: "/admin/students/:studentID",
+        element: <ProtectedRoute component={<StudentInfo/>} roles={['admin']} />,
       },
       {
         path: "/admin/files",
@@ -97,19 +95,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/student/dashboard",
-        element: (
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute
-                  element={<MainStudentDashboard />}
-                  roles={["student"]}
-                />
-              }
-            />
-          </Routes>
-        ),
+        element: <ProtectedRoute component={<MainStudentDashboard/>} roles={['student']} />,
       },
       {
         path: "/student/setting",

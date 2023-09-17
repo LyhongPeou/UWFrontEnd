@@ -66,8 +66,6 @@ const AuthPage = () => {
               console.error("Navigation error:", error);
             }
           } else {
-            // If the response indicates an unsuccessful login attempt, you can handle it here
-
             setErrorMessage(response.payload || "Login unsuccessful.");
           }
         })

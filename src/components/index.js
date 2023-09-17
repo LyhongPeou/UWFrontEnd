@@ -1,14 +1,25 @@
-import AuthPage from "./pages/AuthPage";
-
 import Navbar from "./ui/NavBar";
+import AuthPage from "./pages/AuthPage";
 import AdminDashboard from "./pages/AdminViews/AdminDashboard";
 import MainDashboard from "./pages/AdminViews/MainDashboard";
 import StudentManagement from "./pages/AdminViews/StudentManagement";
 import SettingPage from "./pages/Setting";
 import StudentDashboard from "./pages/StudentViews/StudentDashboard";
-import MainStudentDashboard from "./pages/StudentViews/MainStudentDashboard";
+import RequirementDashboard from "./pages/StudentViews/RequirementDashboard";
 import FileManagement from "./pages/AdminViews/FileManagement";
+import StudentInfo from "./pages/AdminViews/StudentInfo";
+import NotFound from "./pages/NotFound";
 
-
-
-export {AuthPage, Navbar, AdminDashboard, MainDashboard, StudentManagement, SettingPage, StudentDashboard, MainStudentDashboard, FileManagement}
+export {
+    AuthPage, 
+    Navbar, 
+    AdminDashboard, 
+    MainDashboard, 
+    StudentManagement, 
+    SettingPage, 
+    StudentDashboard, 
+    RequirementDashboard, 
+    FileManagement, 
+    StudentInfo,
+    NotFound,
+}   
