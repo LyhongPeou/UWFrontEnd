@@ -51,12 +51,14 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/admin/student_management",
-        element: <ProtectedRoute component={<StudentManagement/>} roles={['admin']} />,
+        path: "/admin/students",
+        element: <Routes>
+        <Route path="/" element={<ProtectedRoute element={<StudentManagement />} roles={['admin']} />} />
+      </Routes>
       },
       {
         path: "/admin/students/:studentID",
-        element: <ProtectedRoute component={<StudentInfo/>} roles={['admin']} />,
+        element: <Routes><Route path="/" element={<ProtectedRoute element={<StudentInfo/>} roles={['admin']} />} /></Routes>
       },
       {
         path: "/admin/files",
