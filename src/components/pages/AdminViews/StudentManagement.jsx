@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../../../styles"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faUser, faMagnifyingGlass, faCircleExclamation } from "@fortawesome/free-solid-svg-icons"
+import { faPlus, faUser, faMagnifyingGlass, faCircleExclamation, faCircleCheck } from "@fortawesome/free-solid-svg-icons"
 import { notificationList } from "../../constants";
 
 const StudentManagement = () => {
@@ -151,20 +151,26 @@ const StudentManagement = () => {
                             className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 hover:border-2 hover:border-secondary"
                         >
                             <p className="mb-2 text-gray-800 font-semibold">
-                            <strong>Name:</strong> {notification.name}
+                                <strong>Name:</strong> {notification.name}
                             </p>
                             <p className="mb-2 text-gray-700 font-semibold">
-                            <strong>Student ID:</strong> {notification.studentID}
+                                <strong>Student ID:</strong> {notification.studentID}
                             </p>
                             <p className="mb-2 text-gray-700">
-                            <strong>Submission:</strong> {notification.submission.join(', ')}
+                                <strong>Submission:</strong> {notification.submission.join(', ')}
                             </p>
                             <p className="text-gray-700">
-                            <strong>Date:</strong> {notification.date.join(', ')}
+                                <strong>Date:</strong> {notification.date.join(', ')}
                             </p>
                             <div className="flex flex-row items-center mt-2">
-                            <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200"/>
-                            <p className="mx-1 text-accent">Not Registered</p>
+                            {notification.registered ? (
+                                    <FontAwesomeIcon icon={faCircleCheck} className="text-base-200 text-green-500" />
+                                ) : (
+                                    <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200 text-red-500" />
+                                )}
+                                <p className={`mx-1 ${notification.registered ? 'text-green-500' : 'text-red-500'}`}>
+                                    {notification.registered ? 'Registered' : 'Not Registered'}
+                                </p>
                             </div>
                         </div>
                         </Link>
@@ -177,20 +183,26 @@ const StudentManagement = () => {
                             className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 hover:border-2 hover:border-secondary"
                         >
                             <p className="mb-2 text-gray-800 font-semibold">
-                            <strong>Name:</strong> {notification.name}
+                                <strong>Name:</strong> {notification.name}
                             </p>
                             <p className="mb-2 text-gray-700 font-semibold">
-                            <strong>Student ID:</strong> {notification.studentID}
+                                <strong>Student ID:</strong> {notification.studentID}
                             </p>
                             <p className="mb-2 text-gray-700">
-                            <strong>Submission:</strong> {notification.submission.join(', ')}
+                                <strong>Submission:</strong> {notification.submission.join(', ')}
                             </p>
                             <p className="text-gray-700">
-                            <strong>Date:</strong> {notification.date.join(', ')}
+                                <strong>Date:</strong> {notification.date.join(', ')}
                             </p>
                             <div className="flex flex-row items-center mt-2">
-                            <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200"/>
-                            <p className="mx-1 text-accent">Not Registered</p>
+                            {notification.registered ? (
+                                    <FontAwesomeIcon icon={faCircleCheck} className="text-base-200 text-green-500" />
+                                ) : (
+                                    <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200 text-red-500" />
+                                )}
+                                <p className={`mx-1 ${notification.registered ? 'text-green-500' : 'text-red-500'}`}>
+                                    {notification.registered ? 'Registered' : 'Not Registered'}
+                                </p>
                             </div>
                         </div>
                         </Link>
@@ -203,20 +215,26 @@ const StudentManagement = () => {
                             className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 hover:border-2 hover:border-secondary"
                         >
                             <p className="mb-2 text-gray-800 font-semibold">
-                            <strong>Name:</strong> {notification.name}
+                                <strong>Name:</strong> {notification.name}
                             </p>
                             <p className="mb-2 text-gray-700 font-semibold">
-                            <strong>Student ID:</strong> {notification.studentID}
+                                <strong>Student ID:</strong> {notification.studentID}
                             </p>
                             <p className="mb-2 text-gray-700">
-                            <strong>Submission:</strong> {notification.submission.join(', ')}
+                                <strong>Submission:</strong> {notification.submission.join(', ')}
                             </p>
                             <p className="text-gray-700">
-                            <strong>Date:</strong> {notification.date.join(', ')}
+                                <strong>Date:</strong> {notification.date.join(', ')}
                             </p>
                             <div className="flex flex-row items-center mt-2">
-                            <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200"/>
-                            <p className="mx-1 text-accent">Not Registered</p>
+                                {notification.registered ? (
+                                    <FontAwesomeIcon icon={faCircleCheck} className="text-base-200 text-green-500" />
+                                ) : (
+                                    <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200 text-red-500" />
+                                )}
+                                <p className={`mx-1 ${notification.registered ? 'text-green-500' : 'text-red-500'}`}>
+                                    {notification.registered ? 'Registered' : 'Not Registered'}
+                                </p>
                             </div>
                         </div>
                         </Link>
