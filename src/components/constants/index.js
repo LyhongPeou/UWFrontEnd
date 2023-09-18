@@ -1,74 +1,74 @@
 const notificationList = [
         {
-            name: "Test 1",
-            studentID: "1",
+            name: "Ivan Baker",
+            studentID: "15123",
             submission: ["Driver's License", "Birth Certificate"],
             date: "5/13/2023"
         },
         {
-            name: "Test 2",
-            studentID: "2",
+            name: "Tyrone Cruz",
+            studentID: "25616",
             submission: ["Driver's License", "Birth Certificate"],
             date: "3/14/2023"
         },
         {
-            name: "Test 3",
-            studentID: "3",
+            name: "Aled Maldonado",
+            studentID: "36123",
             submission: ["Social Security Card"],
             date: "4/18/2023"
         },
         {
-            name: "Test 4",
-            studentID: "4",
+            name: "Chloe Preston",
+            studentID: "46511",
             submission: ["Passport", "Proof of Residence"],
             date: "5/21/2023"
         },
         {
-            name: "Test 5",
-            studentID: "5",
+            name: "Santiago Benjamin",
+            studentID: "56112",
             submission: ["Utility Bill", "Vaccination Card"],
             date: "7/29/2023"
         },
         {
-            name: "Test 6",
-            studentID: "6",
+            name: "Leonie Gillespie",
+            studentID: "64513",
             submission: ["Tax Return Document"],
             date: "8/15/2023"
         },
         {
-            name: "Test 7",
-            studentID: "7",
+            name: "Byron Crane",
+            studentID: "75613",
             submission: ["Tax Return Document"],
             date: "8/15/2023"
         },
 
         {
-            name: "Test 8",
-            studentID: "8",
+            name: "Henrietta Wagner",
+            studentID: "86125",
             submission: ["Tax Return Document"],
             date: "8/15/2023"
         },
         {
-            name: "Test 9",
-            studentID: "9",
+            name: "Mohamad Day",
+            studentID: "96611",
             submission: ["Tax Return Document"],
             date: "8/15/2023"
         },
         {
-            name: "Test 10",
-            studentID: "10",
+            name: "Jemma Baker",
+            studentID: "10321",
             submission: ["Tax Return Document"],
             date: "8/15/2023"
         },
         {
-            name: "Test 11",
-            studentID: "11",
+            name: "Florence Romero",
+            studentID: "11612",
             submission: ["Tax Return Document"],
             date: "8/15/2023"
         },
         {
-            name: "Test 12",
-            studentID: "12",
+            name: "Larry Ferguson",
+            studentID: "12732",
             submission: ["Tax Return Document"],
             date: "8/15/2023"
         },
