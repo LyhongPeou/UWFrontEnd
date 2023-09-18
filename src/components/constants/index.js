@@ -15,7 +15,7 @@ const notificationList = [
             name: "Aled Maldonado",
             studentID: "36123",
             submission: ["Social Security Card"],
-            date: "4/18/2023"
+            date: ["4/18/2023"]
         },
         {
             name: "Chloe Preston",
@@ -33,44 +33,44 @@ const notificationList = [
             name: "Leonie Gillespie",
             studentID: "64513",
             submission: ["Tax Return Document"],
-            date: "8/15/2023"
+            date: ["8/15/2023"]
         },
         {
             name: "Byron Crane",
             studentID: "75613",
             submission: ["Tax Return Document"],
-            date: "8/15/2023"
+            date: ["8/15/2023"]
         },
 
         {
             name: "Henrietta Wagner",
             studentID: "86125",
             submission: ["Tax Return Document"],
-            date: "8/15/2023"
+            date: ["8/15/2023"]
         },
         {
             name: "Mohamad Day",
             studentID: "96611",
             submission: ["Tax Return Document"],
-            date: "8/15/2023"
+            date: ["8/15/2023"]
         },
         {
             name: "Jemma Baker",
             studentID: "10321",
             submission: ["Tax Return Document"],
-            date: "8/15/2023"
+            date: ["8/15/2023"]
         },
         {
             name: "Florence Romero",
             studentID: "11612",
             submission: ["Tax Return Document"],
-            date: "8/15/2023"
+            date: ["8/15/2023"]
         },
         {
             name: "Larry Ferguson",
             studentID: "12732",
             submission: ["Tax Return Document"],
-            date: "8/15/2023"
+            date: ["8/15/2023"]
         },
 ];
 
