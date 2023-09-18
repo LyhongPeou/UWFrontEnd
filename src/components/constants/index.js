@@ -3,13 +3,13 @@ const notificationList = [
             name: "Ivan Baker",
             studentID: "15123",
             submission: ["Driver's License", "Birth Certificate"],
-            date: "5/13/2023"
+            date: ["1/14/2023", "5/12/2023"]
         },
         {
             name: "Tyrone Cruz",
             studentID: "25616",
             submission: ["Driver's License", "Birth Certificate"],
-            date: "3/14/2023"
+            date: ["3/14/2023", "4/12/2023"]
         },
         {
             name: "Aled Maldonado",
@@ -21,13 +21,13 @@ const notificationList = [
             name: "Chloe Preston",
             studentID: "46511",
             submission: ["Passport", "Proof of Residence"],
-            date: "5/21/2023"
+            date: ["3/14/2023", "7/9/2023"]
         },
         {
             name: "Santiago Benjamin",
             studentID: "56112",
             submission: ["Utility Bill", "Vaccination Card"],
-            date: "7/29/2023"
+            date: ["3/14/2023", "4/12/2023"]
         },
         {
             name: "Leonie Gillespie",

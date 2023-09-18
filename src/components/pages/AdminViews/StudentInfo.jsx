@@ -1,5 +1,5 @@
 import { styles } from "../../../styles";
-import { documentList, notificationList } from "../../constants";
+import { notificationList } from "../../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faXmark, faEye} from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
@@ -13,8 +13,15 @@ function StudentInfo() {
 
   return (
     <>
-      <h1 className={`${styles.dashHeadText} mb-4`}>{studentName}'s Documents</h1>
-      <div className="h-[70vh] w-full md:w-1/2 lg:w-full overflow-y-auto rounded-md shadow-md p-4 bg-gray-50 mt-5">
+      <div className="h-[70vh] w-full md:w-1/2 lg:w-full overflow-y-auto rounded-md shadow-md p-4 mt-5">
+      <h1 className="font-bold text-white text-[50px] lg:leading-[80px] mt-2 mb-4">{studentName}</h1>
+      <div className="flex flex-row justify-between">
+        <h3 className={`${styles.studentInfoText}`}>Student ID: {student.studentID}</h3>
+        <h3 className={`${styles.studentInfoText}`}>Other Information If Needed</h3>
+        <h3 className={`${styles.studentInfoText}`}>Other Information If Needed</h3>
+        <h3 className={`${styles.studentInfoText}`}>Other Information If Needed</h3>
+      </div>
+      <h1 className={`${styles.dashHeadText} mb-4`}>Documents</h1>
                 <div className="flex flex-col gap-4">
                 {student.submission.map((requirement, index) => (
                     <div key={index} className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 flex flex-row items-center justify-between">
@@ -27,7 +34,7 @@ function StudentInfo() {
                             <strong>Document:</strong> {requirement}
                         </h3>
                         <h3 className="mb-2 text-gray-700 text-xl">
-                            <strong>Deadline:</strong> {student.date}
+                            <strong>Deadline:</strong> {student.date[index]}
                         </h3>
                         </div>
                     </div>

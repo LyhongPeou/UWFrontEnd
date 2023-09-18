@@ -8,7 +8,9 @@ const styles = {
     labelText:
       "mb-4 text-[18px] font-bold w-full",
     standardbtn:
-      "w-16 px-2 py-2 rounded-2xl text-white font-bold bg-background border border-white text-[12px] hover:bg-secondary hover:border-secondary"
+      "w-16 px-2 py-2 rounded-2xl text-white font-bold bg-background border border-white text-[12px] hover:bg-secondary hover:border-secondary",
+    studentInfoText:
+      "font-semibold text-white text-[22px] mt-2",
   };
   
   export { styles };
