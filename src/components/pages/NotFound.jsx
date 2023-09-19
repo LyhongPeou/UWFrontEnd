@@ -15,7 +15,7 @@ const NotFound = () => {
                 <div className="px-7 py-5 rounded-full text-[18px] text text-white mt-10 mb-4 bg-secondary">
                     <FontAwesomeIcon icon={faArrowLeft}  className="mr-3"/>
                     <Link to="/">
-                        <button className="text-white font-bold">Back To Login</button>
+                        <button className="text-white font-bold">Return To Login</button>
                     </Link>
                 </div>
             </div>
