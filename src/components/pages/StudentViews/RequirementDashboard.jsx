@@ -36,9 +36,6 @@ const MainStudentDashboard = () => {
                             className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 flex flex-row items-center justify-between"
                         >
                             <div className="flex items-center"> 
-                                <button className="btn bg-white text-accent text-[18px] hover:bg-white border border-white hover:border-white hover:text-secondary w-[60px] tooltip tooltip-bottom mr-3" data-tip="View">
-                                    <FontAwesomeIcon icon={faEye} />
-                                </button>
                                 <div className="flex flex-col">
                                     <h3 className="mb-2 text-gray-700 text-xl">
                                         <strong>Document:</strong> {documents.requirement}
@@ -68,9 +65,22 @@ const MainStudentDashboard = () => {
                                         <FontAwesomeIcon icon={faArrowUp} />
                                     </button>
                                 )}
-                                <button className="btn bg-base-200 text-white text-[20px] hover:bg-base-200 border border-base-200 hover:border-base-200 w-[60px] tooltip tooltip-bottom" data-tip="Remove">
-                                    <FontAwesomeIcon icon={faXmark} />
-                                </button>
+                                {documents.uploaded ? (
+                                    <>
+                                        <button 
+                                            className="tooltip tooltip-bottom" 
+                                            data-tip="View"
+                                        >
+                                            <p className="text-accent hover:text-secondary text-md mx-2">View Upload</p>
+                                        </button>
+                                        <button 
+                                            className="btn bg-base-200 text-white text-[20px] hover:bg-base-200 border border-base-200 hover:border-base-200 mx-2 w-[60px] tooltip tooltip-bottom" 
+                                            data-tip="Remove"
+                                        >
+                                            <FontAwesomeIcon icon={faXmark} />
+                                        </button>
+                                    </>
+                                ) : null}
                                 <dialog id="my_modal_3" className="modal">
                                     <div className="modal-box bg-white">
                                     <h3 className="font-bold text-[25px] text-accent mb-6">Upload Document</h3>
