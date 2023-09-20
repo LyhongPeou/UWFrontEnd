@@ -1,3 +1,4 @@
+import React, { useState, useRef } from "react";
 import { styles } from "../../../styles";
 import { documentList } from "../../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,10 +7,24 @@ import {
     faXmark, 
     faEye, 
     faCircleCheck, 
-    faCircleExclamation 
+    faCircleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
+import downloadIcon from "../../images/download.svg"
 
 const MainStudentDashboard = () => {
+
+    const [selectedFile, setSelectedFile] = useState(null);
+    const fileInputRef = useRef();
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        setSelectedFile(file);
+    };
+
+    const handleUploadButtonClick = () => {
+        fileInputRef.current.click();
+    };
+
     return (
         <>
             <h1  className={`${styles.dashHeadText} mb-4`}>Required Documents</h1>
@@ -44,23 +59,38 @@ const MainStudentDashboard = () => {
                                 </div>
                             </div>
                             <div className="flex items-center justify-end">
-                                <button 
-                                    className="btn bg-secondary text-white text-[20px] hover:bg-secondary border border-secondary hover:border-secondary mx-2 w-[60px] tooltip tooltip-bottom" 
-                                    data-tip="Upload"
-                                    onClick={()=>document.getElementById('my_modal_3').showModal()}
-                                >
-                                    <FontAwesomeIcon icon={faArrowUp} />
-                                </button>
+                                {!documents.uploaded && (
+                                    <button 
+                                        className="btn bg-secondary text-white text-[20px] hover:bg-secondary border border-secondary hover:border-secondary mx-2 w-[60px] tooltip tooltip-bottom" 
+                                        data-tip="Upload"
+                                        onClick={()=>document.getElementById('my_modal_3').showModal()}
+                                    >
+                                        <FontAwesomeIcon icon={faArrowUp} />
+                                    </button>
+                                )}
                                 <button className="btn bg-base-200 text-white text-[20px] hover:bg-base-200 border border-base-200 hover:border-base-200 w-[60px] tooltip tooltip-bottom" data-tip="Remove">
                                     <FontAwesomeIcon icon={faXmark} />
                                 </button>
                                 <dialog id="my_modal_3" className="modal">
                                     <div className="modal-box bg-white">
                                     <h3 className="font-bold text-[25px] text-accent mb-6">Upload Document</h3>
-                                        <div className="mt-4" style={{ border: '2px dashed #ccc', padding: '20px', borderRadius: '8px' }}>
+                                        <div className="flex justify-center mt-4 border-[2px] border-dashed border-base-300 p-[20px] rounded-lg h-[300px]">
                                             <form method="dialog">
                                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-accent">✕</button>
                                             </form>
+                                            <div className="flex flex-col items-center h-[100px] mt-8">
+                                                <img src={downloadIcon} className="mt-2 mb-3 h-[50px]"/>
+                                                <p className="text-base-300">Upload Files Here</p>
+                                                <p className="text-base-300">or</p>
+                                                <div className="px-3 py-2 rounded-lg text-[16px] text text-white mt-2 bg-secondary">
+                                                    <button className="text-white font-semibold" onClick={handleUploadButtonClick}>Browse Files</button>
+                                                </div>
+                                                <input
+                                                    type="file"
+                                                    onChange={handleFileChange}
+                                                    ref={fileInputRef}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </dialog>
