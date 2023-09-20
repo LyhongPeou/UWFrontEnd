@@ -11,6 +11,10 @@ function StudentInfo() {
     const student = studentData.find(student => student.studentID === studentID);
     const studentName = student.name;
 
+    if (!student) {
+      return <Redirect to="/admin/404" />;
+    }
+
   return (
     <>
       <div className="h-[70vh] w-full md:w-1/2 lg:w-full overflow-y-auto rounded-md shadow-md p-4 mt-5">

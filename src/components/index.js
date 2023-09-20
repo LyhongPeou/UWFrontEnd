@@ -9,6 +9,7 @@ import RequirementDashboard from "./pages/StudentViews/RequirementDashboard";
 import FileManagement from "./pages/AdminViews/FileManagement";
 import StudentInfo from "./pages/AdminViews/StudentInfo";
 import NotFound from "./pages/NotFound";
+import MoveBack from "./pages/MoveBack";
 
 export {
     AuthPage, 
@@ -22,4 +23,5 @@ export {
     FileManagement, 
     StudentInfo,
     NotFound,
+    MoveBack,
 }   

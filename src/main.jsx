@@ -21,7 +21,8 @@ import {
   RequirementDashboard,
   FileManagement,
   StudentInfo,
-  NotFound
+  NotFound,
+  MoveBack
 } from './components/index'
 
 const router = createBrowserRouter([
@@ -84,6 +85,22 @@ const router = createBrowserRouter([
             />
           </Routes>
         )
+      },
+      {
+        path: "/admin/students/404",
+        element: (
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute 
+                  element={<MoveBack />} 
+                  roles={["admin"]} 
+                />
+              }
+            />
+          </Routes>
+        ),
       },
       {
         path: "/admin/files",
