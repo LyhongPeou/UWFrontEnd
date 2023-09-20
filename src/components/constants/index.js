@@ -88,15 +88,18 @@ const notificationList = [
 const documentList = [
     {
         requirement: ["Tax Return Document"],
-        deadline: "8/15/2023"
+        deadline: "8/15/2023",
+        uploaded: false,
     },
     {
         requirement: ["Driver's License"],
-        deadline: "8/15/2023"
+        deadline: "8/15/2023",
+        uploaded: true,
     },
     {
         requirement: ["Passport"],
-        deadline: "8/15/2023"
+        deadline: "8/15/2023",
+        uploaded: true,
     },
 ]
 
