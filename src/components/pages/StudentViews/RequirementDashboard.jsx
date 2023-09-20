@@ -71,7 +71,7 @@ const MainStudentDashboard = () => {
                                             className="tooltip tooltip-bottom" 
                                             data-tip="View"
                                         >
-                                            <p className="text-accent hover:text-secondary text-md mx-2">View Upload</p>
+                                            <p className="text-accent hover:text-secondary text-md mx-2 font-semibold">View Upload</p>
                                         </button>
                                         <button 
                                             className="btn bg-base-200 text-white text-[20px] hover:bg-base-200 border border-base-200 hover:border-base-200 mx-2 w-[60px] tooltip tooltip-bottom" 
