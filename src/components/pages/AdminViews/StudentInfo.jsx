@@ -4,26 +4,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faXmark, faEye} from "@fortawesome/free-solid-svg-icons";
 import { useParams } from 'react-router-dom';
 
-
 function StudentInfo() {
     const { studentID } = useParams();
     const studentData = notificationList;
     const student = studentData.find(student => student.studentID === studentID);
     const studentName = student.name;
 
-    if (!student) {
-      return <Redirect to="/admin/404" />;
-    }
-
   return (
     <>
-      <div className="h-[70vh] w-full md:w-1/2 lg:w-full overflow-y-auto rounded-md shadow-md p-4 mt-5">
+      <div className="h-[70vh] w-full md:w-1/2 lg:w-full overflow-y-auto rounded-md p-4 mt-5">
       <h1 className="font-bold text-white text-[50px] lg:leading-[80px] mt-2 mb-4">{studentName}</h1>
       <div className="flex flex-row justify-between">
         <h3 className={`${styles.studentInfoText}`}>Student ID: {student.studentID}</h3>
-        <h3 className={`${styles.studentInfoText}`}>Other Information If Needed</h3>
-        <h3 className={`${styles.studentInfoText}`}>Other Information If Needed</h3>
-        <h3 className={`${styles.studentInfoText}`}>Other Information If Needed</h3>
+        <h3 className={`${styles.studentInfoText}`}>Other Info</h3>
+        <h3 className={`${styles.studentInfoText}`}>Other Info</h3>
+        <h3 className={`${styles.studentInfoText}`}>Other Info</h3>
       </div>
       <h1 className={`${styles.dashHeadText} mb-4`}>Documents</h1>
                 <div className="flex flex-col gap-4">
