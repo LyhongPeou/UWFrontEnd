@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-const NotFound = () => {
+const MoveBack = () => {
     return (
         <section className="h-screen w-full relative mx-auto flex flex-row justify-center items-center">
             <div className="flex flex-col justify-center items-center mr-20">
@@ -24,4 +24,4 @@ const NotFound = () => {
     );
 };
 
-export default NotFound;
+export default MoveBack;

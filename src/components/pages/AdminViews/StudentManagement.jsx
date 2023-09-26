@@ -2,10 +2,14 @@ import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../../../styles"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faUser, faMagnifyingGlass, faCircleExclamation } from "@fortawesome/free-solid-svg-icons"
+import { faPlus, faUser, faMagnifyingGlass, faCircleExclamation, faCircleCheck } from "@fortawesome/free-solid-svg-icons"
 import { notificationList } from "../../constants";
 
 const StudentManagement = () => {
+
+    const [filteredByName, setFilteredByName] = useState([]);
+
+    const [filteredByID, setFilteredByID] = useState([]);    
 
     const [activeButton, setActiveButton] = useState('all');
 
@@ -16,8 +20,24 @@ const StudentManagement = () => {
     });
 
     const handleButtonClick = (buttonName) => {
+        if (buttonName === 'all') {
+          setFilteredByName([]);
+          setFilteredByID([]);
+        } else if (buttonName === 'name') {
+          const sortedByLastName = [...notificationList].sort((a, b) =>
+            a.name.split(' ')[1].localeCompare(b.name.split(' ')[1])
+          );
+          setFilteredByName(sortedByLastName);
+          setFilteredByID([]);
+        } else if (buttonName === 'id') {
+          const sortedByID = [...notificationList].sort(
+            (a, b) => parseInt(a.studentID) - parseInt(b.studentID)
+          );
+          setFilteredByID(sortedByID);
+          setFilteredByName([]);
+        }
         setActiveButton(buttonName);
-      };
+      };      
 
     const onChangeHandler = (e) => {
         const { name, value } = e.target;
@@ -124,28 +144,99 @@ const StudentManagement = () => {
         <div className="flex flex-col">
             <div className="h-[70vh] md:h-[58vh] w-full md:w-1/2 lg:w-full overflow-y-auto rounded-md shadow-md p-4 bg-gray-50 mt-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    {notificationList.map((notification, index) => (
+                {activeButton === 'all' &&
+                    notificationList.map((notification, index) => (
                         <Link to={`/admin/students/${notification.studentID}`} key={index} className="text-left">
-                            <div 
-                                className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 hover:border-2 hover:border-secondary"
-                            >
-                                <p className="mb-2 text-gray-800 font-semibold">
-                                    <strong>Name:</strong> {notification.name}
+                        <div 
+                            className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 hover:border-2 hover:border-secondary"
+                        >
+                            <p className="mb-2 text-gray-800 font-semibold">
+                                <strong>Name:</strong> {notification.name}
+                            </p>
+                            <p className="mb-2 text-gray-700 font-semibold">
+                                <strong>Student ID:</strong> {notification.studentID}
+                            </p>
+                            <p className="mb-2 text-gray-700">
+                                <strong>Submission:</strong> {notification.submission.join(', ')}
+                            </p>
+                            <p className="text-gray-700">
+                                <strong>Date:</strong> {notification.date.join(', ')}
+                            </p>
+                            <div className="flex flex-row items-center mt-2">
+                            {notification.registered ? (
+                                    <FontAwesomeIcon icon={faCircleCheck} className="text-base-200 text-green-500" />
+                                ) : (
+                                    <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200 text-red-500" />
+                                )}
+                                <p className={`mx-1 ${notification.registered ? 'text-green-500' : 'text-red-500'}`}>
+                                    {notification.registered ? 'Registered' : 'Not Registered'}
                                 </p>
-                                <p className="mb-2 text-gray-700 font-semibold">
-                                    <strong>Student ID:</strong> {notification.studentID}
-                                </p>
-                                <p className="mb-2 text-gray-700">
-                                    <strong>Submission:</strong> {notification.submission.join(', ')}
-                                </p>
-                                <p className="text-gray-700">
-                                    <strong>Date:</strong> {notification.date}
-                                </p>
-                                <div className="flex flex-row items-center mt-2">
-                                    <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200"/>
-                                    <p className="mx-1 text-accent">Not Registered</p>
-                                </div>
                             </div>
+                        </div>
+                        </Link>
+                    ))}
+
+                    {activeButton === 'name' &&
+                    filteredByName.map((notification, index) => (
+                        <Link to={`/admin/students/${notification.studentID}`} key={index} className="text-left">
+                        <div 
+                            className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 hover:border-2 hover:border-secondary"
+                        >
+                            <p className="mb-2 text-gray-800 font-semibold">
+                                <strong>Name:</strong> {notification.name}
+                            </p>
+                            <p className="mb-2 text-gray-700 font-semibold">
+                                <strong>Student ID:</strong> {notification.studentID}
+                            </p>
+                            <p className="mb-2 text-gray-700">
+                                <strong>Submission:</strong> {notification.submission.join(', ')}
+                            </p>
+                            <p className="text-gray-700">
+                                <strong>Date:</strong> {notification.date.join(', ')}
+                            </p>
+                            <div className="flex flex-row items-center mt-2">
+                            {notification.registered ? (
+                                    <FontAwesomeIcon icon={faCircleCheck} className="text-base-200 text-green-500" />
+                                ) : (
+                                    <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200 text-red-500" />
+                                )}
+                                <p className={`mx-1 ${notification.registered ? 'text-green-500' : 'text-red-500'}`}>
+                                    {notification.registered ? 'Registered' : 'Not Registered'}
+                                </p>
+                            </div>
+                        </div>
+                        </Link>
+                    ))}
+
+                    {activeButton === 'id' &&
+                    filteredByID.map((notification, index) => (
+                        <Link to={`/admin/students/${notification.studentID}`} key={index} className="text-left">
+                        <div 
+                            className="bg-white p-4 mb-4 rounded-md shadow-sm border border-gray-300 hover:border-2 hover:border-secondary"
+                        >
+                            <p className="mb-2 text-gray-800 font-semibold">
+                                <strong>Name:</strong> {notification.name}
+                            </p>
+                            <p className="mb-2 text-gray-700 font-semibold">
+                                <strong>Student ID:</strong> {notification.studentID}
+                            </p>
+                            <p className="mb-2 text-gray-700">
+                                <strong>Submission:</strong> {notification.submission.join(', ')}
+                            </p>
+                            <p className="text-gray-700">
+                                <strong>Date:</strong> {notification.date.join(', ')}
+                            </p>
+                            <div className="flex flex-row items-center mt-2">
+                                {notification.registered ? (
+                                    <FontAwesomeIcon icon={faCircleCheck} className="text-base-200 text-green-500" />
+                                ) : (
+                                    <FontAwesomeIcon icon={faCircleExclamation} className="text-base-200 text-red-500" />
+                                )}
+                                <p className={`mx-1 ${notification.registered ? 'text-green-500' : 'text-red-500'}`}>
+                                    {notification.registered ? 'Registered' : 'Not Registered'}
+                                </p>
+                            </div>
+                        </div>
                         </Link>
                     ))}
                 </div>
