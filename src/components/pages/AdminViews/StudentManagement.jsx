@@ -4,6 +4,7 @@ import { styles } from "../../../styles"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faUser, faMagnifyingGlass, faCircleExclamation, faCircleCheck } from "@fortawesome/free-solid-svg-icons"
 import { notificationList } from "../../constants";
+import axiosInstance from "../../../axiosInstance";
 
 const StudentManagement = () => {
 
@@ -43,6 +44,45 @@ const StudentManagement = () => {
         const { name, value } = e.target;
         setinfoModal({ ...infoModal, [name]: value })
     };
+
+
+    const onSubmitStudentInfo = (e) =>{
+        e.preventDefault();
+        
+        const {name, email, studentID} = infoModal;
+
+        if (name == "" || email == "" || studentID == "") {
+            alert("Please fill in all fields")
+        }
+        else {
+            try {
+                axiosInstance.post("/users/create", {
+                    name: name,
+                    email: email,
+                    studentID: studentID,
+                    })
+                    
+                    .then((response) => {
+                        console.log(response);
+                        if (response.data.message == "success") {
+                            alert("Student successfully added!")
+                        }
+                        else {
+                            alert("Student already exists!")
+                        }
+
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+
+    
+    }
 
     return <>
         <h1 className={`${styles.dashHeadText} mb-4 `}> Student Management </h1>
@@ -107,7 +147,7 @@ const StudentManagement = () => {
                             />
                         </label>
                         <div className="flex justify-center">
-                            <button className="btn bg-secondary text-white text-[20px] border border-secondary mt-6 hover:bg-secondary hover:border-secondary w-full">
+                            <button className="btn bg-secondary text-white text-[20px] border border-secondary mt-6 hover:bg-secondary hover:border-secondary w-full" >
                                 Submit
                             </button>
                         </div>
